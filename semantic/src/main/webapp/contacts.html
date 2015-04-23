@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="resources/js/jquery-ui-1.11.4/jquery-ui.min.css" />
+    <script src="resources/js/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+    <script src="resources/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function() {
+            $.ajax({
+                url: 'http://localhost:8080/semantic/restful/contacts/listdata'
+            }).then(function(data) {
+                console.log(data);
+                data = $.parseJSON(data);
+                $('#contacts').append(data['contacts'][1]);
+            });
+        });
+    </script>
+
+    <h2>Contacts list</h2>
+    <div id="contacts"></div>
+</body>
+</html>
