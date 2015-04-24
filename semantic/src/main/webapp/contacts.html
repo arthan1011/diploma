@@ -17,13 +17,23 @@
                 success: function(data, status, jqXHR) {
                     console.log(data);
                     console.log(status);
-                    $('#contacts').append(data['contacts'][1]);
+                    var contacts = data['contacts'];
+
+                    for (var i = 0; i < contacts.length; i++) {
+                        console.log(contacts[i]);
+                        $('#contactList').append('<li>' + contacts[i] + '</li>');
+                    }
+
                 }
             });
         });
     </script>
 
     <h2>Contacts list</h2>
-    <div id="contacts"></div>
+    <div id="contacts">
+        <ul id="contactList">
+
+        </ul>
+    </div>
 </body>
 </html>
