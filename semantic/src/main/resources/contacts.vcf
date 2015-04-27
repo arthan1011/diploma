@@ -1,81 +1,107 @@
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:alexsigarev@mail.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/49b
- 9ebfe8f395c21
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:ekolzikova@diasoft.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/109
- a6ce90d92ffdd
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:mgfedotova@yandex.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/c4c
- 8aef09241986
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:Lesnayapol@yandex.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/deb
- 75e90d37e361
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:sergey_pod@bk.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/70e
- 9c27f8fb06bde
-FN:Сергей Подчуфаров
-N:Подчуфаров;Сергей;;;
-X-EVOLUTION-FILE-AS:Подчуфаров\, Сергей
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:sergey.n.bruskin@gmail.com
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/b61
  afb8b01f5cb
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:sergey.n.bruskin@gmail.com
 FN:Сергей Брускин
 N:Брускин;Сергей;;;
 X-EVOLUTION-FILE-AS:Брускин\, Сергей
+REV:2015-04-25T14:07:14Z(1)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:gda007@mail.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/d55
- 9e460e0e276f
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/747
+ 472510b63701b
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:Iliza.shamsieva@ubs.com
+FN:Илиза Шамсиева
+N:Шамсиева;Илиза;;;
+X-EVOLUTION-FILE-AS:Шамсиева\, Илиза
+REV:2015-04-25T14:07:14Z(3)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-X-GDATA-PHOTO-ETAG:"ShNJJn1GfCt7I2BJInclazRJLQdIAFs5MzI."
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:marinamishagina@mail.ru
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/70e
+ 9c27f8fb06bde
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:sergey_pod@bk.ru
+FN:Сергей Подчуфаров
+N:Подчуфаров;Сергей;;;
+X-EVOLUTION-FILE-AS:Подчуфаров\, Сергей
+REV:2015-04-25T14:07:14Z(5)
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/3bd
+ c259c0a862857
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:zolotaya@i-teco.ru
+FN:Жанна Золотая
+N:Золотая;Жанна;;;
+X-EVOLUTION-FILE-AS:Золотая\, Жанна
+REV:2015-04-25T14:07:14Z(7)
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/7da
+ 85f670b193afb
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:OKarpenko@luxoft.com
+FN:Ольга Карпенко
+N:Карпенко;Ольга;;;
+X-EVOLUTION-FILE-AS:Карпенко\, Ольга
+REV:2015-04-25T14:07:14Z(9)
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/498
+ d534f8b717cf0
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:ekhasanova@at-consulting.ru
+FN:Евгения Гарифовна Хасанова
+N:Хасанова;Евгения;Гарифовна;;
+X-EVOLUTION-FILE-AS:Хасанова\, Евгения
+REV:2015-04-25T14:07:14Z(11)
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/136
+ 1573a0fe9d896
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:shamsieva@yandex.ru
+FN:Лилия Шамсиева
+N:Шамсиева;Лилия;;;
+X-EVOLUTION-FILE-AS:Шамсиева\, Лилия
+REV:2015-04-25T14:07:15Z(13)
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/315
+ ee97f8a060553
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:dga007@mail.ru
+FN:Галина Дементьева
+N:Дементьева;Галина;;;
+X-EVOLUTION-FILE-AS:Дементьева\, Галина
+REV:2015-04-25T14:07:15Z(15)
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/b39
  24ee8d4ca16b
-N:;;;;
-X-EVOLUTION-FILE-AS:
+X-GDATA-PHOTO-ETAG:"ShNJJn1GfCt7I2BJInclazRJLQdIAFs5MzI."
+X-GDATA-PHOTO-ETAG:"ShNJJn1GfCt7I2BJInclazRJLQdIAFs5MzI."
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:marinamishagina@mail.ru
+FN:Марина Мишагина
+N:Мишагина;Марина;;;
+X-EVOLUTION-FILE-AS:Мишагина\, Марина
 PHOTO;TYPE=jpeg;ENCODING=b:/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAUDBA0QDxAODw8O
  DRAODhEOEQ4QDg4QDxAOERAPDhANDhAQDRIQDg8QEA8NDxUOEBIRExMTEBAWGhcSGBASFRIBBQ
  UFBwYHDggIDh0UERQfHR4eHh4dHh4eGR4fGx8eHh0fHx8XHhwaGhweHRodHR8eHhweHx8eHh4f
@@ -136,89 +162,160 @@ PHOTO;TYPE=jpeg;ENCODING=b:/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAUDBA0QDxAODw8O
  cHZD8kEOOn4kqqKJ6A2GqtN7fWJNmOeRmN4S7yVNsouFApJUrapF6JArTm96bQ5bK2mpw6WFOi
  xJ5kksx8ixJpjbbTlVtWRBAC5zwAET08z6CYpQwWFuTARp4wD/AC+dMOA2TiRqoUecVOTiuKYn
  izrwZcQhQCVFA1KATWoCrAVJNTuBt3khJsSkuhsKSabVNB3W7hH/2Q==
-FN:
+REV:2015-04-25T14:07:15Z(17)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:Iliza.shamsieva@ubs.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/747
- 472510b63701b
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/650
+ ea9408910c830
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:TPolyakh@luxoft.com
+FN:Татьяна Поляк
+N:Поляк;Татьяна;;;
+X-EVOLUTION-FILE-AS:Поляк\, Татьяна
+REV:2015-04-25T14:07:15Z(19)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:Nina.Kondratyeva@ru.manpowergroup.co
- m
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/67a
- 2e6ed8868e55d
-FN:Kondratyeva\, Nina
-N:Kondratyeva;Nina;;;
-X-EVOLUTION-FILE-AS:Kondratyeva\, Nina
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/750
+ caa7e0bdde117
+X-GDATA-PHOTO-ETAG:"LWxxZHkvfCt7I2BYGhAIcE1KH2YZJG8HMjU."
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:arthan1011@gmail.com
+FN:Артур Шамсиев
+N:Шамсиев;Артур;;;
+X-EVOLUTION-FILE-AS:Шамсиев\, Артур
+PHOTO;TYPE=jpeg;ENCODING=b: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
+ BERAf//Z
+REV:2015-04-25T14:07:15Z(21)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:zolotaya@i-teco.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/3bd
- c259c0a862857
-FN:Золотая Жанна
-N:Жанна;Золотая;;;
-X-EVOLUTION-FILE-AS:Жанна\, Золотая
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/d7f
+ 22e508bbcb5e
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:lena.ivkova@mail.ru
+FN:Елена Ивкова
+N:Ивкова;Елена;;;
+X-EVOLUTION-FILE-AS:Ивкова\, Елена
+REV:2015-04-25T14:07:15Z(23)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:info@citeck.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/789
- da7748c9a4cbe
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/215
+ 728d58c344897
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:nick@methodlab.info
+FN:Николай Лавлинский
+N:Лавлинский;Николай;;;
+X-EVOLUTION-FILE-AS:Лавлинский\, Николай
+REV:2015-04-25T14:07:15Z(25)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:OKarpenko@luxoft.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/7da
- 85f670b193afb
-FN:Karpenko\, Olga
-N:Karpenko;Olga;;;
-X-EVOLUTION-FILE-AS:Karpenko\, Olga
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/385
+ 40f50d1c67e5
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:evahr@job.yandex.ru
+FN:Ева Романова
+N:Романова;Ева;;;
+X-EVOLUTION-FILE-AS:Романова\, Ева
+REV:2015-04-25T14:07:15Z(27)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:info@muon.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/5db
- c43bb8f2e8070
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/4ed
+ 049428cf6a6f3
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:kamalina@insoft.ru
+FN:Ольга Владимировна Камалина
+N:Камалина;Ольга;Владимировна;;
+X-EVOLUTION-FILE-AS:Камалина\, Ольга
+REV:2015-04-25T14:07:15Z(29)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:dga007@mail.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/315
- ee97f8a060553
-FN:Галина Дементьева
-N:Дементьева;Галина;;;
-X-EVOLUTION-FILE-AS:Дементьева\, Галина
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/461
+ aad3e88d35d16
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:akrasnokutskaya@star-staff.ru
+FN:Анастасия Краснокутская
+N:Краснокутская;Анастасия;;;
+X-EVOLUTION-FILE-AS:Краснокутская\, Анастасия
+REV:2015-04-25T14:07:15Z(31)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-X-GDATA-PHOTO-ETAG:"XShhGgsYSit7I2BjJVIUdzpIM0NDPFkgVBQ."
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:victorromanov1@gmail.com
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/433
+ ee54a8c7cd6d4
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:VSvistun@luxoft.com
+FN:Виктория Свистун
+N:Свистун;Виктория;;;
+X-EVOLUTION-FILE-AS:Свистун\, Виктория
+REV:2015-04-25T14:07:16Z(33)
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/479
+ 1ab520bb51db2
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:ishilina@diasoft.ru
+FN:Ирина Шилина
+N:Шилина;Ирина;;;
+X-EVOLUTION-FILE-AS:Шилина\, Ирина
+REV:2015-04-25T14:07:16Z(37)
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/28f
  f50540c8e95d0
-FN:victor romanov
-N:romanov;victor;;;
-X-EVOLUTION-FILE-AS:romanov\, victor
+X-GDATA-PHOTO-ETAG:"XShhGgsYSit7I2BjJVIUdzpIM0NDPFkgVBQ."
+X-GDATA-PHOTO-ETAG:"XShhGgsYSit7I2BjJVIUdzpIM0NDPFkgVBQ."
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:victorromanov1@gmail.com
+FN:Виктор Романов
+N:Романов;Виктор;;;
+X-EVOLUTION-FILE-AS:Романов\, Виктор
 PHOTO;TYPE=jpeg;ENCODING=b:/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAUDBBAPDRANDwwQ
  DQ4QDw0LDw8NDg8RDxERDRAQEhAOEBANDRALDw0QExEPDRUSDhERExcTDg0iGhYSHhASFBcBBQ
  UFBwYHDgkIDxoVEhUeHBsWHR4fGxwaHB8cGBweGh0XHxoeHBsdHhQfHx8dGhwYHxocHRofFxwe
@@ -297,573 +394,42 @@ PHOTO;TYPE=jpeg;ENCODING=b:/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAUDBBAPDRANDwwQ
  PeKQwRJRYSJFJ1JEYYKuBXK182ld+mMWUgKZe9sN6+8Yr5VcxPEwIfpsFDN+FrE3ChQL+Lge3z
  qzPpXyaaWFJXmlMpiXqhgoU3UHFgwaT7tixBRkPm4N90d6oc1NHxKpp85I5C2a4hWQoyLICtji
  W/GSpCsAjHuAZhM22exAVg0BdL27hRaJUOv767q//9k=
+REV:2015-04-25T14:07:16Z(39)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:shamsieva@yandex.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/136
- 1573a0fe9d896
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:amindal333@mail.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/507
- 3133895d1d41
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:TPolyakh@luxoft.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/650
- ea9408910c830
-FN:Polyakh\, Tatiyana
-N:Polyakh;Tatiyana;;;
-X-EVOLUTION-FILE-AS:Polyakh\, Tatiyana
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-X-GDATA-PHOTO-ETAG:"LWxxZHkvfCt7I2BYGhAIcE1KH2YZJG8HMjU."
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:arthan1011@gmail.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/750
- caa7e0bdde117
-FN:Артур Шамсиев
-N:Шамсиев;Артур;;;
-X-EVOLUTION-FILE-AS:Шамсиев\, Артур
-PHOTO;TYPE=jpeg;ENCODING=b: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
- BERAf//Z
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:oef02@inbox.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/180
- 346a20e93381f
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:tfinfo@teleform.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/228
- 3e0228f3a5d55
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:TLomakina@iteranet.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/afa
- b26c8a35e5aa
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;TYPE=OTHER:nikolai.matyunin@gmail.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/dfa
- dc8d0aa81724
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:vkozoriz@yandex.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/501
- aa018fa9e294
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:forchief@yandex.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/2e9
- 026298dc0bbec
-FN:forchief
-N:;forchief;;;
-X-EVOLUTION-FILE-AS:forchief
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:group-419@yandex.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/6cc
- a45ee8d309e9d
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:lena.ivkova@mail.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/d7f
- 22e508bbcb5e
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:evahr@job.yandex.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/385
- 40f50d1c67e5
-FN:Романова Ева
-N:Ева;Романова;;;
-X-EVOLUTION-FILE-AS:Ева\, Романова
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:VBaranova@iteranet.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/155
- a92e609b05a3c
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:kamalina@insoft.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/4ed
- 049428cf6a6f3
-FN:Камалина Ольга Владимировна
-N:Владимировна;Камалина;Ольга;;
-X-EVOLUTION-FILE-AS:Владимировна\, Камалина
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:info@smile-net.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/39c
- f227d89f310f8
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:akrasnokutskaya@star-staff.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/461
- aad3e88d35d16
-FN:Краснокутская Анастасия
-N:Анастасия;Краснокутская;;;
-X-EVOLUTION-FILE-AS:Анастасия\, Краснокутская
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:4everbut4er@gmail.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/327
- 982b40df1ce73
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:hr@ultimeta.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/700
- 7febc0f47cacc
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:rea-skatershchikova@ro.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/202
- 104ec0e32aa8b
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:lena0088@mail.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/1ad
- 5557f8d9800c0
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-X-GOOGLE-SYSTEM-GROUP-IDS:Contacts
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:tazya91@mail.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/302
- 321818821b99f
-N:;;;;
-X-EVOLUTION-FILE-AS:
-CATEGORIES:Personal
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-X-GDATA-PHOTO-ETAG:"fjl0M2cXWit7I2BHGEICQy5eMQdIDDs5T1Q."
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:orekhova.e.n@gmail.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/72c
- 667de89b719e3
-N:;;;;
-X-EVOLUTION-FILE-AS:
-PHOTO;TYPE=jpeg;ENCODING=b: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
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:VSvistun@luxoft.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/433
- ee54a8c7cd6d4
-FN:Svistun\, Viktoriya
-N:Svistun;Viktoriya;;;
-X-EVOLUTION-FILE-AS:Svistun\, Viktoriya
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-X-GDATA-PHOTO-ETAG:"eAZBe1gpbCt7I2A6JmIkTxNiAwAkDzslPRo."
-X-GOOGLE-SYSTEM-GROUP-IDS:Contacts
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:arturecon@gmail.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/608
- 9b0a70b4e3a9b
-FN:ДОМ
-N:;ДОМ;;;
-X-EVOLUTION-FILE-AS:ДОМ
-CATEGORIES:Personal
-PHOTO;TYPE=png;ENCODING=b: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
- AAASUVORK5CYII=
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:ishilina@diasoft.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/479
- 1ab520bb51db2
-FN:Шилина Ирина
-N:Ирина;Шилина;;;
-X-EVOLUTION-FILE-AS:Ирина\, Шилина
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:personal@smile-net.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/787
- bc7300c40739e
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:kafstat@mail.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/4cc
- 874ec8bd93551
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:nick@methodlab.info
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/215
- 728d58c344897
-FN:Nickolay Lavlinsky
-N:Lavlinsky;Nickolay;;;
-X-EVOLUTION-FILE-AS:Lavlinsky\, Nickolay
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-X-URIS:http://www.google.com/profiles/108571821468764251260
-X-GOOGLE-SYSTEM-GROUP-IDS:Contacts
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:shamsievai@gmail.com
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/272
- ac7cb896bd1ea
-FN:Илиза
-N:;Илиза;;;
-X-EVOLUTION-FILE-AS:Илиза
-CATEGORIES:Personal
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:tshaidurova@at-consulting.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/276
- 2c0c90cfb7226
-FN:Шайдурова Татьяна Владимировна
-N:Владимировна;Шайдурова;Татьяна;;
-X-EVOLUTION-FILE-AS:Владимировна\, Шайдурова
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:mefisto1288@mail.ru
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/637
  c9be709cf7c68
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:mefisto1288@mail.ru
+FN:Валерий Решетов
+N:Решетов;Валерий;;;
+X-EVOLUTION-FILE-AS:Решетов\, Валерий
+REV:2015-04-25T14:07:16Z(41)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:1549527@rambler.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/34c
- d8efb0badfb3a
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/67a
+ 2e6ed8868e55d
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:Nina.Kondratyeva@ru.manpowergroup.co
+ m
+FN:Нина Кондратьева
+N:Кондратьева;Нина;;;
+X-EVOLUTION-FILE-AS:Кондратьева\, Нина
+REV:2015-04-25T14:07:16Z(43)
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:ekhasanova@at-consulting.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/498
- d534f8b717cf0
-FN:Хасанова Евгения Гарифовна
-N:Гарифовна;Хасанова;Евгения;;
-X-EVOLUTION-FILE-AS:Гарифовна\, Хасанова
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:dgoremikin@mail.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/4c9
- 43a578f186e29
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
-END:VCARD
-
-BEGIN:VCARD
-VERSION:3.0
-EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:oi_esina@mail.ru
-UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/424
- 24a4f0e400a2b
-N:;;;;
-X-EVOLUTION-FILE-AS:
-FN:
+UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/276
+ 2c0c90cfb7226
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:tshaidurova@at-consulting.ru
+FN:Татьяна Владимировна Шайдурова
+N:Шайдурова;Татьяна;Владимировна;;
+X-EVOLUTION-FILE-AS:Шайдурова\, Татьяна
+REV:2015-04-25T14:07:16Z(45)
 END:VCARD

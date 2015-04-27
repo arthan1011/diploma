@@ -13,6 +13,9 @@
             $.ajax({
                 type: 'GET',
                 url: 'http://localhost:8080/semantic/restful/contacts/listdata',
+                headers: {
+                    Accept : "text/plain; charset=utf-8"
+                },
                 dataType: 'json',
                 success: function(data, status, jqXHR) {
                     console.log(data);

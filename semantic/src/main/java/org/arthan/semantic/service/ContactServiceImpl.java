@@ -1,17 +1,12 @@
 package org.arthan.semantic.service;
 
-import com.google.common.collect.Lists;
-import ezvcard.Ezvcard;
+import com.google.common.base.Strings;
 import ezvcard.VCard;
-import org.apache.commons.io.IOUtils;
 import org.json.JSONStringer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.StringWriter;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -22,29 +17,27 @@ import java.util.stream.Collectors;
 
 @Service("contactService")
 public class ContactServiceImpl implements ContactService {
+
+    @Autowired
+    private VCardService vCardService;
+
     @Override
     public String listAllContacts() {
-        List<VCard> cards = Ezvcard.parse(getContactsString()).all();
-        List<String> emails = cards.stream().map(input ->
-                input.getEmails().get(0).getValue()).collect(Collectors.toList());
+        List<VCard> cards = vCardService.findVCards();
+        List<String> names = cards.stream().map(input ->
+                input.getStructuredName().getGiven() + " " + input.getStructuredName().getFamily()).collect(Collectors.toList());
 
+        // фильтруем от пустых имен
+        names = names.stream().filter(input -> !Strings.isNullOrEmpty(input)).collect(Collectors.toList());
         String contacts = new JSONStringer()
             .object()
                 .key("contacts")
-                .value(emails.toArray())
+                .value(names.toArray())
             .endObject()
         .toString();
+        System.out.println(contacts);
 
         return contacts;
     }
 
-    private String getContactsString() {
-        StringWriter writer = new StringWriter();
-        try {
-            IOUtils.copy(new FileInputStream(System.getProperty("user.home") + "/.semantic/list.vcf"), writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return writer.toString();
-    }
 }
