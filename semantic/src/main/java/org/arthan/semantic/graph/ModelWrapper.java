@@ -1,8 +1,14 @@
 package org.arthan.semantic.graph;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.SimpleSelector;
+import com.hp.hpl.jena.vocabulary.VCARD;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Properties;
 
 /**
@@ -16,11 +22,23 @@ public class ModelWrapper {
     private Properties idProps;
 
     public ModelWrapper(File graphFile) {
+        this();
+        FileInputStream in = getFileInputStream(graphFile);
+        model.read(in, null);
+    }
 
+    private FileInputStream getFileInputStream(File graphFile) {
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(graphFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return fileInputStream;
     }
 
     public ModelWrapper() {
-
+        model = ModelFactory.createDefaultModel();
     }
 
     public long findLastIDFor(ResourceType type) {
