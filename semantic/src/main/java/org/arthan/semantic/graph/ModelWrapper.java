@@ -26,6 +26,7 @@ public class ModelWrapper {
         model.read(in, null);
     }
 
+    // TODO: сделать FileService
     private FileInputStream getFileInputStream(File graphFile) {
         FileInputStream fileInputStream = null;
         try {
