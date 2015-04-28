@@ -22,7 +22,7 @@ public class VCardServiceImpl implements VCardService {
     }
 
     private String getContactsString() {
-        File defaultFile = new File(System.getProperty("user.home") + "/.semantic/list.vcf");
+        File defaultFile = VCardUtils.getDefaultVCardFile();
         return VCardUtils.readVCardFile(defaultFile);
     }
 

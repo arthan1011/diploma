@@ -2,6 +2,7 @@ package org.arthan.semantic.service;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import org.arthan.semantic.graph.ModelWrapper;
 import org.junit.Test;
 
 import java.io.File;
@@ -19,9 +20,10 @@ public class GraphTest {
 
         GraphVCardService cardService = new GraphVCardService();
 
-        File defaultVCardFile = new File(System.getProperty("user.home") + "/.semantic/list.vcf");
-        cardService.addToModel(defaultVCardFile, model);
+        File defaultVCardFile = new File(System.getProperty("user.home") + "/semantic/list.vcf");
+        ModelWrapper modelWrapper = ModelWrapper.initModel();
+        cardService.addToModel(defaultVCardFile, modelWrapper);
 
-        model.write(System.out);
+        modelWrapper.getModel().write(System.out);
     }
 }

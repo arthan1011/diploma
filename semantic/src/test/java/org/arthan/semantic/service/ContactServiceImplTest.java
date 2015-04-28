@@ -26,7 +26,7 @@ public class ContactServiceImplTest {
 
     private String getContactsString() throws IOException {
         StringWriter writer = new StringWriter();
-        IOUtils.copy(new FileInputStream(System.getProperty("user.home") + "/.semantic/list.vcf"), writer);
+        IOUtils.copy(new FileInputStream(System.getProperty("user.home") + "/semantic/list.vcf"), writer);
         return writer.toString();
     }
 }

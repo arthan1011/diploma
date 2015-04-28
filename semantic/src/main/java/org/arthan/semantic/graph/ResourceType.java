@@ -6,5 +6,15 @@ package org.arthan.semantic.graph;
  * Project - semantic
  */
 public enum ResourceType {
-    CONTACT
+    CONTACT("http://artur.lazy-magister.org/types/contact");
+
+    private String uri;
+
+    ResourceType(String uri) {
+        this.uri = uri;
+    }
+
+    public String getUri() {
+        return uri;
+    }
 }

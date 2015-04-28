@@ -1,5 +1,10 @@
 package org.arthan.semantic.model;
 
+import com.google.common.collect.Lists;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -9,9 +14,12 @@ import java.util.List;
  * Project - semantic
  */
 public class Contact {
+    public static final String URI = "http://artur.lazy-magister.org/resources/contact/";
+
+    private long id;
     private String firstName;
     private String lastName;
-    private List<String> emails;
+    private List<String> emails = Lists.newArrayList();
 
     public String getFirstName() {
         return firstName;
@@ -30,10 +38,54 @@ public class Contact {
     }
 
     public List<String> getEmails() {
-        return Collections.unmodifiableList(emails);
+        return emails;
     }
 
     public void setEmails(List<String> emails) {
         this.emails = emails;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public static Contact create(Contact contact, long id) {
+        Contact result = new Contact();
+        result.setEmails(contact.getEmails());
+        result.setFirstName(contact.getFirstName());
+        result.setLastName(contact.getLastName());
+        result.setId(id);
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Contact contact = (Contact) o;
+
+        if (emails != null ? !emails.equals(contact.emails) : contact.emails != null) return false;
+        if (firstName != null ? !firstName.equals(contact.firstName) : contact.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(contact.lastName) : contact.lastName != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName != null ? firstName.hashCode() : 0;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (emails != null ? emails.hashCode() : 0);
+        return result;
+    }
+
+    public static long extractID(String uri) {
+        int l = uri.lastIndexOf(URI);
+        return Long.parseLong(URI.substring(l));
     }
 }
