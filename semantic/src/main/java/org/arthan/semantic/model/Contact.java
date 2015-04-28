@@ -85,7 +85,6 @@ public class Contact {
     }
 
     public static long extractID(String uri) {
-        int l = uri.lastIndexOf(URI);
-        return Long.parseLong(URI.substring(l));
+        return Long.parseLong(uri.substring(URI.length()));
     }
 }

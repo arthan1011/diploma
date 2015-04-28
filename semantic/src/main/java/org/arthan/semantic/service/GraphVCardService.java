@@ -33,9 +33,13 @@ public class GraphVCardService {
         if (storedContacts.isEmpty()) {
             createContacts(contacts, 0);
         } else {
-            long lastContactID = modelWrapper.findLastIDFor(ResourceType.CONTACT);
+            long lastContactID = findLastID(storedContacts);
             addContacts(storedContacts, contacts, lastContactID);
         }
+    }
+
+    private long findLastID(List<Contact> contacts) {
+        return contacts.stream().mapToLong(input -> input.getId()).max().orElse(0);
     }
 
     private void addContacts(List<Contact> storedContacts,
@@ -57,9 +61,14 @@ public class GraphVCardService {
     private List<Contact> findUpdatedContacts(List<Contact> storedContacts, List<Contact> contacts) {
         List<Contact> resultList = Lists.newArrayList();
         for (Contact contact : contacts) {
-            resultList.addAll(storedContacts.stream().filter(
-                    savedContact -> savedContact.getEmails().contains(contact.getEmails())).map(
-                    savedContact -> Contact.create(contact, savedContact.getId())).collect(Collectors.toList()));
+            if (contact.getEmails().isEmpty()) {
+                continue;
+            }
+            boolean isUpdate = storedContacts.stream().anyMatch(
+                    saved -> !saved.equals(contact) && saved.getEmails().containsAll(contact.getEmails()));
+            if (isUpdate) {
+                resultList.add(contact);
+            }
         }
         return resultList;
     }
@@ -68,9 +77,11 @@ public class GraphVCardService {
         List<Contact> resultList = Lists.newArrayList();
         for (int i = 0; i < contacts.size(); i++) {
             Contact contact =  storedContacts.get(i);
-            resultList.addAll(storedContacts.stream().filter(
-                    savedContact -> !savedContact.equals(contact) && !savedContact.getEmails().contains(contact.getEmails())).map(
-                    savedContact -> contact).collect(Collectors.toList()));
+            boolean isNew = storedContacts.stream().allMatch(
+                    saved -> !saved.equals(contact) && !saved.getEmails().containsAll(contact.getEmails()));
+            if (isNew) {
+                resultList.add(contact);
+            }
         }
         return resultList;
     }

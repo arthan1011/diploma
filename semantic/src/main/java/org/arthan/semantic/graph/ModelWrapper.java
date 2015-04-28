@@ -94,7 +94,7 @@ public class ModelWrapper {
         while (stmtIterator.hasNext()) {
             Statement statement = stmtIterator.next();
             Contact newContact = new Contact();
-            Resource resource = statement.getResource();
+            Resource resource = statement.getSubject();
             newContact.setId(Contact.extractID(resource.getURI()));
             String firstName = resource.getProperty(VCARD.Given).getObject().toString();
             String lastName = resource.getProperty(VCARD.Family).getObject().toString();
