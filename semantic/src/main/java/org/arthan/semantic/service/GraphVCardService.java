@@ -53,9 +53,7 @@ public class GraphVCardService {
     }
 
     private void updateContacts(List<Contact> updatedContacts) {
-        for (Contact contact : updatedContacts) {
-            modelWr.replace(contact);
-        }
+        updatedContacts.forEach(modelWr::replace);
     }
 
     private List<Contact> findUpdatedContacts(List<Contact> storedContacts, List<Contact> contacts) {
@@ -66,11 +64,21 @@ public class GraphVCardService {
             }
             boolean isUpdate = storedContacts.stream().anyMatch(
                     saved -> !saved.equals(contact) && saved.getEmails().containsAll(contact.getEmails()));
+
             if (isUpdate) {
+                Contact updatedContact = findUpdatedContact(contact, storedContacts);
+                contact.setId(updatedContact.getId());
                 resultList.add(contact);
             }
         }
         return resultList;
+    }
+
+    private Contact findUpdatedContact(Contact contact, List<Contact> storedContacts) {
+        List<Contact> updatedContacts = storedContacts.stream()
+                .filter(saved -> saved.getEmails().containsAll(contact.getEmails()))
+                .filter(saved -> !saved.equals(contact)).collect(Collectors.toList());
+        return updatedContacts.stream().findFirst().get();
     }
 
     private List<Contact> findNewContacts(List<Contact> storedContacts, List<Contact> contacts) {
@@ -95,6 +103,10 @@ public class GraphVCardService {
                 res.addProperty(VCARD.EMAIL, email);
             }
         }
+    }
+
+    public List<Contact> allContacts() {
+        return ModelWrapper.initModel().findAll(ResourceType.CONTACT);
     }
 
     // http://artur.lazy-magister.org/resources/contact/17

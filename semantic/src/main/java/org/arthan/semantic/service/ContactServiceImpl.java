@@ -2,6 +2,7 @@ package org.arthan.semantic.service;
 
 import com.google.common.base.Strings;
 import ezvcard.VCard;
+import org.arthan.semantic.model.Contact;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,24 +21,26 @@ public class ContactServiceImpl implements ContactService {
 
     @Autowired
     private VCardService vCardService;
+    @Autowired
+    private GraphVCardService graphVCardService;
 
     @Override
     public String listAllContacts() {
-        List<VCard> cards = vCardService.findVCards();
-        List<String> names = cards.stream().map(input ->
-                input.getStructuredName().getGiven() + " " + input.getStructuredName().getFamily()).collect(Collectors.toList());
+        List<Contact> contactList = graphVCardService.allContacts();
+        List<String> names = contactList.stream().map(input ->
+                input.getFirstName()+ " " + input.getLastName()).collect(Collectors.toList());
 
         // фильтруем от пустых имен
         names = names.stream().filter(input -> !Strings.isNullOrEmpty(input)).collect(Collectors.toList());
-        String contacts = new JSONStringer()
+        String contactsJSON = new JSONStringer()
             .object()
                 .key("contacts")
                 .value(names.toArray())
             .endObject()
         .toString();
-        System.out.println(contacts);
+        System.out.println(contactsJSON);
 
-        return contacts;
+        return contactsJSON;
     }
 
 }

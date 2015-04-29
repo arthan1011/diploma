@@ -69,7 +69,7 @@ public class ModelWrapper {
         StmtIterator stmtIterator = model.listStatements(selector);
         while (stmtIterator.hasNext()) {
             Statement statement = stmtIterator.next();
-            String uri = statement.getResource().getURI();
+            String uri = statement.getSubject().getURI();
             if (uri.equals(Contact.URI + contact.getId())) {
                 model.remove(statement);
                 break;
