@@ -1,7 +1,6 @@
 package org.arthan.semantic.service;
 
 import com.google.common.base.Strings;
-import ezvcard.VCard;
 import org.arthan.semantic.model.Contact;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,7 @@ public class ContactServiceImpl implements ContactService {
         String contactsJSON = new JSONStringer()
             .object()
                 .key("contacts")
-                .value(names.toArray())
+                .value(contactList)
             .endObject()
         .toString();
         System.out.println(contactsJSON);
