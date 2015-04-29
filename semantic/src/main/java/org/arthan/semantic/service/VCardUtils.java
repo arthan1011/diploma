@@ -6,10 +6,7 @@ import ezvcard.property.Email;
 import org.apache.commons.io.IOUtils;
 import org.arthan.semantic.model.Contact;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.StringWriter;
+import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,7 +19,7 @@ public class VCardUtils {
     public static String readVCardFile(File vCardFile) {
         StringWriter writer = new StringWriter();
         try {
-            IOUtils.copy(new FileInputStream(vCardFile), writer);
+            IOUtils.copy(new InputStreamReader(new FileInputStream(vCardFile), "UTF-8"), writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
