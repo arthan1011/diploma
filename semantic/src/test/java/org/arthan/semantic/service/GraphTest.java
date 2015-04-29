@@ -2,7 +2,7 @@ package org.arthan.semantic.service;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import org.arthan.semantic.graph.ModelWrapper;
+import org.arthan.semantic.service.graph.ModelWrapper;
 import org.junit.Test;
 
 import java.io.File;

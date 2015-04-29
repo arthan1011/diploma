@@ -1,12 +1,18 @@
 package org.arthan.semantic.service;
 
 import com.google.common.collect.Lists;
-import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.graph.GraphUtil;
+import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.graph.NodeFactory;
+import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.VCARD;
-import org.arthan.semantic.graph.ModelWrapper;
-import org.arthan.semantic.graph.ResourceType;
+import org.arthan.semantic.service.graph.ModelRepository;
+import org.arthan.semantic.service.graph.ModelWrapper;
+import org.arthan.semantic.service.graph.ResourceType;
 import org.arthan.semantic.model.Contact;
+import org.arthan.semantic.util.GraphUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -21,6 +27,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class GraphVCardService {
+
+    @Autowired
+    ModelRepository modelRepository;
 
     private ModelWrapper modelWr;
 
@@ -106,7 +115,23 @@ public class GraphVCardService {
     }
 
     public List<Contact> allContacts() {
-        return ModelWrapper.initModel().findAll(ResourceType.CONTACT);
+        List<Contact> resultList = Lists.newArrayList();
+        Model model = modelRepository.getModel();
+        ResIterator contactIterator = model.listSubjectsWithProperty(RDF.type, ResourceType.CONTACT.getUri());
+        while (contactIterator.hasNext()) {
+            Resource resContact = contactIterator.next();
+            Contact newContact = new Contact();
+            newContact.setId(Contact.extractID(resContact.getURI()));
+            newContact.setFirstName(resContact.getProperty(VCARD.Given).getObject().toString());
+            newContact.setLastName(resContact.getProperty(VCARD.Family).getObject().toString());
+            StmtIterator emailsIterator = resContact.listProperties(VCARD.EMAIL);
+            while (emailsIterator.hasNext()) {
+                Statement next = emailsIterator.next();
+                newContact.getEmails().add(next.getObject().toString());
+            }
+            resultList.add(newContact);
+        }
+        return resultList;
     }
 
     // http://artur.lazy-magister.org/resources/contact/17

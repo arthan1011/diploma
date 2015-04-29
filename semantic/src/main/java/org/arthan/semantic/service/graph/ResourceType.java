@@ -1,4 +1,4 @@
-package org.arthan.semantic.graph;
+package org.arthan.semantic.service.graph;
 
 /**
  * Created by Arthur Shamsiev on 27.04.15.

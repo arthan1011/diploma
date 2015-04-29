@@ -1,10 +1,11 @@
-package org.arthan.semantic.graph;
+package org.arthan.semantic.service.graph;
 
 import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.VCARD;
 import org.arthan.semantic.model.Contact;
+import org.arthan.semantic.util.GraphUtils;
 
 import java.io.*;
 import java.util.List;
@@ -65,7 +66,7 @@ public class ModelWrapper {
     }
 
     public void replace(Contact contact) {
-        SimpleSelector selector = createSelectorForType(ResourceType.CONTACT.getUri());
+        SimpleSelector selector = GraphUtils.selectorForType(ResourceType.CONTACT.getUri());
         StmtIterator stmtIterator = model.listStatements(selector);
         while (stmtIterator.hasNext()) {
             Statement statement = stmtIterator.next();
@@ -90,7 +91,7 @@ public class ModelWrapper {
 
     public List<Contact> findAll(ResourceType contact) {
         List<Contact> resultList = Lists.newArrayList();
-        SimpleSelector selector = createSelectorForType(ResourceType.CONTACT.getUri());
+        SimpleSelector selector = GraphUtils.selectorForType(ResourceType.CONTACT.getUri());
         StmtIterator stmtIterator = model.listStatements(selector);
         while (stmtIterator.hasNext()) {
             Statement statement = stmtIterator.next();
@@ -111,11 +112,6 @@ public class ModelWrapper {
         return resultList;
     }
 
-
-
-    private SimpleSelector createSelectorForType(String typeURI) {
-        return new SimpleSelector(null, RDF.type, typeURI);
-    }
 
     public void write() {
         File graphFile = getDefaultGraphFile();
