@@ -27,9 +27,9 @@
                         $('#contactsAccordion').append('<h3>' + contacts[i].firstName + '</h3>');
                         $('#contactsAccordion').append('<div><p>' + contacts[i].emails[0] + '</p></div>');
                     }
+                    makeAccordion()
                 }
             });
-            makeAccordion();
         });
 
         function makeAccordion() {
@@ -44,5 +44,6 @@
     <h2>Contacts list</h2>
     <div id="contactsAccordion">
     </div>
+    <input type="text" name="date" id="date" />
 </body>
 </html>
