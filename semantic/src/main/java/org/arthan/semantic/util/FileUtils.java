@@ -1,9 +1,6 @@
 package org.arthan.semantic.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 /**
@@ -23,10 +20,10 @@ public class FileUtils {
         }
     }
 
-    private static final String DEFAULT_MODEL_FILE = prop.getProperty("path.default.model");
+    public static final String DEFAULT_MODEL_FILE = System.getProperty("user.home") + prop.getProperty("path.default.model");
 
     public static InputStream modelIS() {
-        String path = System.getProperty("user.home") + DEFAULT_MODEL_FILE;
+        String path = DEFAULT_MODEL_FILE;
         FileInputStream in = null;
         try {
             in = new FileInputStream(new File(path));
@@ -34,5 +31,23 @@ public class FileUtils {
             e.printStackTrace();
         }
         return in;
+    }
+
+    public static OutputStream modelOS() {
+        File file = new File(DEFAULT_MODEL_FILE);
+        FileOutputStream os = null;
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            os = new FileOutputStream(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return os;
+    }
+
+    public static boolean modelFileExists() {
+        return new File(DEFAULT_MODEL_FILE).exists();
     }
 }

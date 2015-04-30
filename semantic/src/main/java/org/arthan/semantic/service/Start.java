@@ -1,6 +1,6 @@
 package org.arthan.semantic.service;
 
-import org.arthan.semantic.service.graph.ModelWrapper;
+import org.arthan.semantic.service.graph.GraphService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,6 +14,8 @@ public class Start implements InitializingBean {
 
     @Autowired
     GraphVCardService graphVCardService;
+    @Autowired
+    GraphService graphService;
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -21,8 +23,6 @@ public class Start implements InitializingBean {
     }
 
     private void refreshGraph() {
-        ModelWrapper modelWrapper = ModelWrapper.initModel();
-        graphVCardService.addToModel(VCardUtils.getDefaultVCardFile(), modelWrapper);
-        modelWrapper.write();
+        graphService.refreshGraph();
     }
 }

@@ -7,6 +7,9 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 /**
  * Created by Arthur Shamsiev on 29.04.15.
  * Using IntelliJ IDEA
@@ -15,7 +18,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
-public class ModelRepository {
+public class GraphRepository {
     private Model model;
 
     public Model getModel() {
@@ -27,6 +30,18 @@ public class ModelRepository {
 
     private void initModel() {
         model = ModelFactory.createDefaultModel();
-        model.read(FileUtils.modelIS(), null);
+        if (FileUtils.modelFileExists()) {
+            model.read(FileUtils.modelIS(), null);
+        }
+    }
+
+    public void writeGraph() {
+        OutputStream out = FileUtils.modelOS();
+        model.write(out);
+        try {
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

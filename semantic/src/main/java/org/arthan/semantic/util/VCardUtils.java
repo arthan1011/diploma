@@ -1,4 +1,4 @@
-package org.arthan.semantic.service;
+package org.arthan.semantic.util;
 
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
@@ -51,7 +51,7 @@ public class VCardUtils {
         return readVCard(getDefaultVCardFile());
     }
 
-    static File getDefaultVCardFile() {
+    static public File getDefaultVCardFile() {
         return new File(System.getProperty("user.home") + "/semantic/list.vcf");
     }
 }

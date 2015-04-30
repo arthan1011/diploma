@@ -11,4 +11,9 @@ import java.util.List;
  */
 public interface VCardService {
     List<VCard> findVCards();
+
+    /**
+     * Добавляет информацию из файла контактов в основной граф
+     */
+    void addToGraph();
 }
