@@ -41,7 +41,16 @@ public class ContactServiceImpl implements ContactService {
         return new JSONStringer()
             .object()
                 .key("contact")
-                .value(contact)
+                .object()
+                    .key("id")
+                    .value(contact.getId())
+                    .key("firstName")
+                    .value(contact.getFirstName())
+                    .key("lastName")
+                    .value(contact.getLastName())
+                    .key("emails")
+                    .value(contact.getEmails())
+                .endObject()
             .endObject()
         .toString();
     }

@@ -2,10 +2,7 @@ package org.arthan.semantic.web.restful.controller;
 
 import org.arthan.semantic.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by artur.shamsiev on 22.04.2015.
@@ -22,5 +19,11 @@ public class ContactController {
     @ResponseBody
     public String listData() {
         return contactService.listAllContacts();
+    }
+
+    @RequestMapping(value = "/contact/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public String findContact(@PathVariable String id) {
+        return contactService.findContact(id);
     }
 }

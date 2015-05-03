@@ -3,16 +3,49 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Контакт</title>
+    <script src="../../resources/js/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+    <script src="../../resources/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../../resources/js/arthan/utils.js"></script>
-    <script type="text/javascript" src="../../resources/js/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="../../resources/js/jquery-ui-1.11.4/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../../resources/css/style.css" />
 </head>
 <body>
     <script type="text/javascript">
         $(function() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:8080/semantic/restful/contacts/contact/' + Utils.id,
+                headers: {
+                    Accept : "text/plain; charset=utf-8"
+                },
+                dataType: 'json',
+                success: function(data, status, jqXHR) {
+                    console.log(data);
+                    console.log(status);
+                    var contact = data['contact'];
+
+                    $('#contactAcc').append('<h3>' + 'Имя' + '</h3>');
+                    $('#contactAcc').append('<div>' + contact.firstName + ' ' + contact.lastName + '</div>');
+                    $('#contactAcc').append('<h3>' + 'Emails' + '</h3>');
+                    var emailContent = $('<div></div>');
+                    var emails = $('<ul></ul>');
+                    emailContent.append(emails);
+                    $('#contactAcc').append(emailContent);
+                    for (var i = 0; i < contact.emails.length; i++) {
+                        emails.append('<li>' + contact.emails[i] + '</li>');
+                    }
+
+                    $('#contactAcc').accordion({
+                        collapsible: true,
+                        active: false
+                    });
+                }
+        });
             console.log(Utils.id);
             $('#contact').text(Utils.id);
         });
     </script>
     <h2 id="contact"></h2>
+    <div id="contactAcc" class="w500"></div>
 </body>
 </html>
