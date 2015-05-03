@@ -19,18 +19,11 @@ import java.util.stream.Collectors;
 public class ContactServiceImpl implements ContactService {
 
     @Autowired
-    private VCardService vCardService;
-    @Autowired
     private GraphVCardService graphVCardService;
 
     @Override
     public String listAllContacts() {
         List<Contact> contactList = graphVCardService.allContacts();
-        List<String> names = contactList.stream().map(input ->
-                input.getFirstName()+ " " + input.getLastName()).collect(Collectors.toList());
-
-        // фильтруем от пустых имен
-        names = names.stream().filter(input -> !Strings.isNullOrEmpty(input)).collect(Collectors.toList());
         String contactsJSON = new JSONStringer()
             .object()
                 .key("contacts")
@@ -40,6 +33,17 @@ public class ContactServiceImpl implements ContactService {
         System.out.println(contactsJSON);
 
         return contactsJSON;
+    }
+
+    @Override
+    public String findContact(String id) {
+        Contact contact = graphVCardService.findContact(id);
+        return new JSONStringer()
+            .object()
+                .key("contact")
+                .value(contact)
+            .endObject()
+        .toString();
     }
 
 }

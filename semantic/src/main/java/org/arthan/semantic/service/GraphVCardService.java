@@ -30,18 +30,29 @@ public class GraphVCardService {
         ResIterator contactIterator = model.listSubjectsWithProperty(RDF.type, ResourceType.CONTACT.getUri());
         while (contactIterator.hasNext()) {
             Resource resContact = contactIterator.next();
-            Contact newContact = new Contact();
-            newContact.setId(Contact.extractID(resContact.getURI()));
-            newContact.setFirstName(resContact.getProperty(VCARD.Given).getObject().toString());
-            newContact.setLastName(resContact.getProperty(VCARD.Family).getObject().toString());
-            StmtIterator emailsIterator = resContact.listProperties(VCARD.EMAIL);
-            while (emailsIterator.hasNext()) {
-                Statement next = emailsIterator.next();
-                newContact.getEmails().add(next.getObject().toString());
-            }
+            Contact newContact = contactFromResource(resContact);
             resultList.add(newContact);
         }
         return resultList;
+    }
+
+    public Contact findContact(String id) {
+        Model model = graphRepository.getModel();
+        Resource resContact = model.getResource(Contact.URI + id);
+        return contactFromResource(resContact);
+    }
+
+    private Contact contactFromResource(Resource resContact) {
+        Contact newContact = new Contact();
+        newContact.setId(Contact.extractID(resContact.getURI()));
+        newContact.setFirstName(resContact.getProperty(VCARD.Given).getObject().toString());
+        newContact.setLastName(resContact.getProperty(VCARD.Family).getObject().toString());
+        StmtIterator emailsIterator = resContact.listProperties(VCARD.EMAIL);
+        while (emailsIterator.hasNext()) {
+            Statement next = emailsIterator.next();
+            newContact.getEmails().add(next.getObject().toString());
+        }
+        return newContact;
     }
 
     // http://artur.lazy-magister.org/resources/contact/17

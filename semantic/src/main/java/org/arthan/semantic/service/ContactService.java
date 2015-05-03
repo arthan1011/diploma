@@ -8,4 +8,6 @@ package org.arthan.semantic.service;
 public interface ContactService {
 
     String listAllContacts();
+
+    String findContact(String id);
 }

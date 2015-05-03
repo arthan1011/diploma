@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../resources/js/jquery-ui-1.11.4/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../resources/css/style.css" />
+    <script src="../resources/js/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+    <script src="../resources/js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:8080/semantic/restful/contacts/listdata',
+                headers: {
+                    Accept : "text/plain; charset=utf-8"
+                },
+                dataType: 'json',
+                success: function(data, status, jqXHR) {
+                    console.log(data);
+                    console.log(status);
+                    var contacts = data['contacts'];
+
+                    for (var i = 0; i < contacts.length; i++) {
+                        console.log(contacts[i]);
+                        $('#contactList').append(createContactListItem(contacts[i]));
+                    }
+                }
+            });
+        });
+
+        function createContactListItem(contact) {
+            var item = $('<li></li>');
+            var link = $('<a></a>');
+            var contactHref = 'entity/contact.html?id=' + contact.id;
+            item.append(link);
+            link.prop('href', contactHref);
+            link.text(contact.firstName);
+            return item;
+        }
+    </script>
+
+    <h2>Contacts list</h2>
+    <a href="entity/contact.html?id=323">link</a>
+    <ul id="contactList">
+
+    </ul>
+</body>
+</html>
