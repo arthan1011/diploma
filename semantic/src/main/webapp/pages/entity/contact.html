@@ -39,13 +39,33 @@
                         collapsible: true,
                         active: false
                     });
+                    createTabsContent(contact);
                 }
         });
-            console.log(Utils.id);
-            $('#contact').text(Utils.id);
         });
+
+        function createTabsContent(contact) {
+            var tabList = $('<ul></ul>');
+            for (var prop in contact) {
+                if (contact.hasOwnProperty(prop)) {
+                    var tabItem = $('<div></div>');
+                    tabItem.prop('id', prop);
+                    tabItem.text(contact[prop]);
+                    $('#tabs').append(tabItem);
+
+                    var item = $('<li></li>');
+                    var link = $('<a></a>');
+                    item.append(link);
+                    link.prop('href', '#' + prop);
+                    link.text(prop);
+                    tabList.append(item);
+                }
+            }
+            $('#tabs').prepend(tabList);
+        }
     </script>
     <h2 id="contact"></h2>
     <div id="contactAcc" class="w500"></div>
+    <div id="tabs" class="w500"></div>
 </body>
 </html>

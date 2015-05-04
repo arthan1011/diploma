@@ -1,11 +1,16 @@
 package org.arthan.semantic.service;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Lists;
-import com.hp.hpl.jena.rdf.model.*;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.SimpleSelector;
+import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.VCARD;
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
+import org.apache.commons.collections4.CollectionUtils;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.service.graph.GraphRepository;
 import org.arthan.semantic.service.graph.ResourceType;
@@ -17,6 +22,8 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.apache.commons.collections4.CollectionUtils.intersection;
 
 /**
  * Created by Arthur Shamsiev on 25.04.15.
@@ -102,12 +109,14 @@ public class VCardServiceImpl implements VCardService {
         return updatedContacts.stream().findFirst().get();
     }
 
-    private List<Contact> findNewContacts(List<Contact> storedContacts, List<Contact> contacts) {
+    @VisibleForTesting
+    static List<Contact> findNewContacts(List<Contact> storedContacts, List<Contact> contacts) {
         List<Contact> resultList = Lists.newArrayList();
-        for (int i = 0; i < contacts.size(); i++) {
-            Contact contact =  storedContacts.get(i);
+        for (Contact contact : contacts) {
             boolean isNew = storedContacts.stream().allMatch(
-                    saved -> !saved.equals(contact) && !saved.getEmails().containsAll(contact.getEmails()));
+                    saved ->
+                            !saved.equals(contact) &&
+                            intersection(saved.getEmails(), contact.getEmails()).isEmpty());
             if (isNew) {
                 resultList.add(contact);
             }

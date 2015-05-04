@@ -55,7 +55,7 @@ public class Contact {
 
     public static Contact create(Contact contact, long id) {
         Contact result = new Contact();
-        result.setEmails(contact.getEmails());
+        result.setEmails(Lists.newArrayList(contact.getEmails()));
         result.setFirstName(contact.getFirstName());
         result.setLastName(contact.getLastName());
         result.setId(id);
