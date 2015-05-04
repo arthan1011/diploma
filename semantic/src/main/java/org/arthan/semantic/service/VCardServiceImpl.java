@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static org.apache.commons.collections4.CollectionUtils.intersection;
@@ -84,29 +85,27 @@ public class VCardServiceImpl implements VCardService {
         create(contact);
     }
 
-    private List<Contact> findUpdatedContacts(List<Contact> storedContacts, List<Contact> contacts) {
+    @VisibleForTesting
+    static List<Contact> findUpdatedContacts(List<Contact> storedContacts, List<Contact> contacts) {
         List<Contact> resultList = Lists.newArrayList();
         for (Contact contact : contacts) {
             if (contact.getEmails().isEmpty()) {
                 continue;
             }
-            boolean isUpdate = storedContacts.stream().anyMatch(
-                    saved -> !saved.equals(contact) && saved.getEmails().containsAll(contact.getEmails()));
-
-            if (isUpdate) {
-                Contact updatedContact = findUpdatedContact(contact, storedContacts);
-                contact.setId(updatedContact.getId());
+            Optional<Contact> optUpdateContact = findUpdatedContact(contact, storedContacts);
+            if (optUpdateContact.isPresent()) {
+                contact.setId(optUpdateContact.get().getId());
                 resultList.add(contact);
             }
         }
         return resultList;
     }
 
-    private Contact findUpdatedContact(Contact contact, List<Contact> storedContacts) {
+    private static Optional<Contact> findUpdatedContact(Contact contact, List<Contact> storedContacts) {
         List<Contact> updatedContacts = storedContacts.stream()
-                .filter(saved -> saved.getEmails().containsAll(contact.getEmails()))
+                .filter(saved -> !intersection(saved.getEmails(), contact.getEmails()).isEmpty())
                 .filter(saved -> !saved.equals(contact)).collect(Collectors.toList());
-        return updatedContacts.stream().findFirst().get();
+        return updatedContacts.stream().findFirst();
     }
 
     @VisibleForTesting

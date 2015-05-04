@@ -67,4 +67,41 @@ public class VCardServiceImplTest {
 
         Assert.assertTrue("Should not find any new contacts", newContacts.isEmpty());
     }
+
+    @Test
+    public void shouldFindUpdatedContactWithAddEmail() throws Exception {
+        Contact contact = Contact.create(savedContacts.stream().findFirst().get(), 32);
+        contact.getEmails().add("new-email@gmail.com");
+        contacts.add(contact);
+
+        List<Contact> updatedContacts = VCardServiceImpl.findUpdatedContacts(savedContacts, contacts);
+
+        Assert.assertEquals("Should find only one updated contact", 1, updatedContacts.size());
+        Assert.assertEquals("Should find updated contact", contact, updatedContacts.stream().findFirst().get());
+    }
+
+    @Test
+    public void shouldFindUpdatedContactWithRemoveEmail() throws Exception {
+        Contact contact = Contact.create(savedContacts.stream().findFirst().get(), 32);
+        contact.getEmails().remove(0);
+        contacts.add(contact);
+
+        List<Contact> updatedContacts = VCardServiceImpl.findUpdatedContacts(savedContacts, contacts);
+
+        Assert.assertEquals("Should find only one updated contact", 1, updatedContacts.size());
+        Assert.assertEquals("Should find updated contact", contact, updatedContacts.stream().findFirst().get());
+    }
+
+    @Test
+    public void shouldNotFindUpdatedContact() throws Exception {
+        Contact nthird = new Contact();
+        contacts.add(nthird);
+        nthird.setFirstName("Third");
+        nthird.setLastName("TCon");
+        nthird.getEmails().addAll(Lists.newArrayList("third3@gmail.com", "third33@gmail.com"));
+
+        List<Contact> newContacts = VCardServiceImpl.findUpdatedContacts(savedContacts, contacts);
+
+        Assert.assertTrue("Should not find update contact", newContacts.isEmpty());
+    }
 }
