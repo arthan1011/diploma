@@ -2,11 +2,25 @@ BEGIN:VCARD
 VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/b61
  afb8b01f5cb
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:sergey.n.bruskin@gmail.com
 FN:Сергей Брускин
 N:Брускин;Сергей;;;
 X-EVOLUTION-FILE-AS:Брускин\, Сергей
-REV:2015-04-25T14:07:14Z(1)
+REV:2015-05-04T13:57:39Z(8)
+URL:
+TITLE:
+ROLE:
+X-EVOLUTION-MANAGER:
+X-EVOLUTION-ASSISTANT:
+NICKNAME:
+X-EVOLUTION-SPOUSE:
+NOTE:
+X-EVOLUTION-BLOG-URL:
+CALURI:
+FBURL:
+X-EVOLUTION-VIDEO-URL:
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:sergey.n.bruskin@gmail.com
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=3:sergey.n.bruski@gmail.com
 END:VCARD
 
 BEGIN:VCARD
@@ -14,18 +28,31 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/747
  472510b63701b
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:Iliza.shamsieva@ubs.com
 FN:Илиза Шамсиева
 N:Шамсиева;Илиза;;;
 X-EVOLUTION-FILE-AS:Шамсиева\, Илиза
-REV:2015-04-25T14:07:14Z(3)
+REV:2015-05-04T13:57:54Z(10)
+URL:
+TITLE:
+ROLE:
+X-EVOLUTION-MANAGER:
+X-EVOLUTION-ASSISTANT:
+NICKNAME:
+X-EVOLUTION-SPOUSE:
+NOTE:
+X-EVOLUTION-BLOG-URL:
+CALURI:
+FBURL:
+X-EVOLUTION-VIDEO-URL:
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:Iliza.shamsieva@ubs.com
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=3:Iliza.shamsieva@yandex.com
 END:VCARD
 
 BEGIN:VCARD
 VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/70e
  9c27f8fb06bde
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:sergey_pod@bk.ru
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:sergey_pod@bk.ru
 FN:Сергей Подчуфаров
 N:Подчуфаров;Сергей;;;
 X-EVOLUTION-FILE-AS:Подчуфаров\, Сергей
@@ -37,11 +64,24 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/3bd
  c259c0a862857
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:zolotaya@i-teco.ru
 FN:Жанна Золотая
 N:Золотая;Жанна;;;
 X-EVOLUTION-FILE-AS:Золотая\, Жанна
-REV:2015-04-25T14:07:14Z(7)
+REV:2015-05-04T13:58:19Z(14)
+URL:
+TITLE:
+ROLE:
+X-EVOLUTION-MANAGER:
+X-EVOLUTION-ASSISTANT:
+NICKNAME:
+X-EVOLUTION-SPOUSE:
+NOTE:
+X-EVOLUTION-BLOG-URL:
+CALURI:
+FBURL:
+X-EVOLUTION-VIDEO-URL:
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:zolotaya@i-teco.ru
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=3:zolotaya@insoft.ru
 END:VCARD
 
 BEGIN:VCARD
@@ -49,11 +89,24 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/7da
  85f670b193afb
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:OKarpenko@luxoft.com
 FN:Ольга Карпенко
 N:Карпенко;Ольга;;;
 X-EVOLUTION-FILE-AS:Карпенко\, Ольга
-REV:2015-04-25T14:07:14Z(9)
+REV:2015-05-04T13:58:07Z(12)
+URL:
+TITLE:
+ROLE:
+X-EVOLUTION-MANAGER:
+X-EVOLUTION-ASSISTANT:
+NICKNAME:
+X-EVOLUTION-SPOUSE:
+NOTE:
+X-EVOLUTION-BLOG-URL:
+CALURI:
+FBURL:
+X-EVOLUTION-VIDEO-URL:
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:OKarpenko@luxoft.com
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=3:OKarpenka@luxoft.com
 END:VCARD
 
 BEGIN:VCARD
@@ -61,11 +114,24 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/498
  d534f8b717cf0
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:ekhasanova@at-consulting.ru
 FN:Евгения Гарифовна Хасанова
 N:Хасанова;Евгения;Гарифовна;;
 X-EVOLUTION-FILE-AS:Хасанова\, Евгения
-REV:2015-04-25T14:07:14Z(11)
+REV:2015-05-04T13:57:31Z(6)
+URL:
+TITLE:
+ROLE:
+X-EVOLUTION-MANAGER:
+X-EVOLUTION-ASSISTANT:
+NICKNAME:
+X-EVOLUTION-SPOUSE:
+NOTE:
+X-EVOLUTION-BLOG-URL:
+CALURI:
+FBURL:
+X-EVOLUTION-VIDEO-URL:
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:ekhasanova@at-consulting.ru
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=3:ekhasanova3@at-consulting.ru
 END:VCARD
 
 BEGIN:VCARD
@@ -73,7 +139,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/136
  1573a0fe9d896
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:shamsieva@yandex.ru
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:shamsieva@yandex.ru
 FN:Лилия Шамсиева
 N:Шамсиева;Лилия;;;
 X-EVOLUTION-FILE-AS:Шамсиева\, Лилия
@@ -84,11 +150,25 @@ BEGIN:VCARD
 VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/315
  ee97f8a060553
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:dga007@mail.ru
 FN:Галина Дементьева
 N:Дементьева;Галина;;;
 X-EVOLUTION-FILE-AS:Дементьева\, Галина
-REV:2015-04-25T14:07:15Z(15)
+REV:2015-05-04T13:58:36Z(16)
+URL:
+TITLE:
+ROLE:
+X-EVOLUTION-MANAGER:
+X-EVOLUTION-ASSISTANT:
+NICKNAME:
+X-EVOLUTION-SPOUSE:
+NOTE:
+X-EVOLUTION-BLOG-URL:
+CALURI:
+FBURL:
+X-EVOLUTION-VIDEO-URL:
+X-MOZILLA-HTML:FALSE
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:dga007@mail.ru
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=3:dga666@mail.ru
 END:VCARD
 
 BEGIN:VCARD
@@ -98,7 +178,7 @@ UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/b39
 X-GDATA-PHOTO-ETAG:"ShNJJn1GfCt7I2BJInclazRJLQdIAFs5MzI."
 X-GDATA-PHOTO-ETAG:"ShNJJn1GfCt7I2BJInclazRJLQdIAFs5MzI."
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:marinamishagina@mail.ru
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:marinamishagina@mail.ru
 FN:Марина Мишагина
 N:Мишагина;Марина;;;
 X-EVOLUTION-FILE-AS:Мишагина\, Марина
@@ -170,7 +250,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/650
  ea9408910c830
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:TPolyakh@luxoft.com
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:TPolyakh@luxoft.com
 FN:Татьяна Поляк
 N:Поляк;Татьяна;;;
 X-EVOLUTION-FILE-AS:Поляк\, Татьяна
@@ -182,7 +262,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/750
  caa7e0bdde117
 X-GDATA-PHOTO-ETAG:"LWxxZHkvfCt7I2BYGhAIcE1KH2YZJG8HMjU."
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:arthan1011@gmail.com
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:arthan1011@gmail.com
 FN:Артур Шамсиев
 N:Шамсиев;Артур;;;
 X-EVOLUTION-FILE-AS:Шамсиев\, Артур
@@ -226,7 +306,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/d7f
  22e508bbcb5e
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:lena.ivkova@mail.ru
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:lena.ivkova@mail.ru
 FN:Елена Ивкова
 N:Ивкова;Елена;;;
 X-EVOLUTION-FILE-AS:Ивкова\, Елена
@@ -238,11 +318,24 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/215
  728d58c344897
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:nick@methodlab.info
 FN:Николай Лавлинский
 N:Лавлинский;Николай;;;
 X-EVOLUTION-FILE-AS:Лавлинский\, Николай
-REV:2015-04-25T14:07:15Z(25)
+REV:2015-05-04T13:57:13Z(2)
+URL:
+TITLE:
+ROLE:
+X-EVOLUTION-MANAGER:
+X-EVOLUTION-ASSISTANT:
+NICKNAME:
+X-EVOLUTION-SPOUSE:
+NOTE:
+X-EVOLUTION-BLOG-URL:
+CALURI:
+FBURL:
+X-EVOLUTION-VIDEO-URL:
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:nick@methodlab.info
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=3:nick1@methodlab.info
 END:VCARD
 
 BEGIN:VCARD
@@ -250,7 +343,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/385
  40f50d1c67e5
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:evahr@job.yandex.ru
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:evahr@job.yandex.ru
 FN:Ева Романова
 N:Романова;Ева;;;
 X-EVOLUTION-FILE-AS:Романова\, Ева
@@ -262,11 +355,24 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/4ed
  049428cf6a6f3
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:kamalina@insoft.ru
 FN:Ольга Владимировна Камалина
 N:Камалина;Ольга;Владимировна;;
 X-EVOLUTION-FILE-AS:Камалина\, Ольга
-REV:2015-04-25T14:07:15Z(29)
+REV:2015-05-04T13:57:04Z(0)
+URL:
+TITLE:
+ROLE:
+X-EVOLUTION-MANAGER:
+X-EVOLUTION-ASSISTANT:
+NICKNAME:
+X-EVOLUTION-SPOUSE:
+NOTE:
+X-EVOLUTION-BLOG-URL:
+CALURI:
+FBURL:
+X-EVOLUTION-VIDEO-URL:
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:kamalina@insoft.ru
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=3:kamalina2@insoft.ru
 END:VCARD
 
 BEGIN:VCARD
@@ -274,7 +380,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/461
  aad3e88d35d16
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:akrasnokutskaya@star-staff.ru
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:akrasnokutskaya@star-staff.ru
 FN:Анастасия Краснокутская
 N:Краснокутская;Анастасия;;;
 X-EVOLUTION-FILE-AS:Краснокутская\, Анастасия
@@ -286,7 +392,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/433
  ee54a8c7cd6d4
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:VSvistun@luxoft.com
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:VSvistun@luxoft.com
 FN:Виктория Свистун
 N:Свистун;Виктория;;;
 X-EVOLUTION-FILE-AS:Свистун\, Виктория
@@ -298,7 +404,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/479
  1ab520bb51db2
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:ishilina@diasoft.ru
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:ishilina@diasoft.ru
 FN:Ирина Шилина
 N:Шилина;Ирина;;;
 X-EVOLUTION-FILE-AS:Шилина\, Ирина
@@ -312,7 +418,7 @@ UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/28f
 X-GDATA-PHOTO-ETAG:"XShhGgsYSit7I2BjJVIUdzpIM0NDPFkgVBQ."
 X-GDATA-PHOTO-ETAG:"XShhGgsYSit7I2BjJVIUdzpIM0NDPFkgVBQ."
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:victorromanov1@gmail.com
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:victorromanov1@gmail.com
 FN:Виктор Романов
 N:Романов;Виктор;;;
 X-EVOLUTION-FILE-AS:Романов\, Виктор
@@ -402,11 +508,24 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/637
  c9be709cf7c68
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:mefisto1288@mail.ru
 FN:Валерий Решетов
 N:Решетов;Валерий;;;
 X-EVOLUTION-FILE-AS:Решетов\, Валерий
-REV:2015-04-25T14:07:16Z(41)
+REV:2015-05-04T13:57:22Z(4)
+URL:
+TITLE:
+ROLE:
+X-EVOLUTION-MANAGER:
+X-EVOLUTION-ASSISTANT:
+NICKNAME:
+X-EVOLUTION-SPOUSE:
+NOTE:
+X-EVOLUTION-BLOG-URL:
+CALURI:
+FBURL:
+X-EVOLUTION-VIDEO-URL:
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:mefisto1288@mail.ru
+EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=3:mefisto1289@mail.ru
 END:VCARD
 
 BEGIN:VCARD
@@ -414,7 +533,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/67a
  2e6ed8868e55d
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:Nina.Kondratyeva@ru.manpowergroup.co
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:Nina.Kondratyeva@ru.manpowergroup.co
  m
 FN:Нина Кондратьева
 N:Кондратьева;Нина;;;
@@ -427,7 +546,7 @@ VERSION:3.0
 UID:http://www.google.com/m8/feeds/contacts/arthan1011%40gmail.com/full/276
  2c0c90cfb7226
 X-MOZILLA-HTML:FALSE
-EMAIL;TYPE=OTHER;X-EVOLUTION-UI-SLOT=1:tshaidurova@at-consulting.ru
+EMAIL;X-EVOLUTION-UI-SLOT=1;TYPE=OTHER:tshaidurova@at-consulting.ru
 FN:Татьяна Владимировна Шайдурова
 N:Шайдурова;Татьяна;Владимировна;;
 X-EVOLUTION-FILE-AS:Шайдурова\, Татьяна
