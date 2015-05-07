@@ -60,6 +60,18 @@
 
         lItem: function () {
             return $('<li></li>');
+        },
+
+        sImg: function (url) {
+            var img = $('<img></img>');
+
+            if (arguments.length = 0) {
+                return img;
+            }
+
+            img.prop('src', url);
+            img.addClass('sImg');
+            return img;
         }
 
     };

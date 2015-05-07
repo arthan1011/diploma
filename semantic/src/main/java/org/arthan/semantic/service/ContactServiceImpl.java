@@ -38,7 +38,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public String findContact(String id) {
         Contact contact = graphVCardService.findContact(id);
-        return new JSONStringer()
+        String jsonContact = new JSONStringer()
             .object()
                 .key("contact")
                 .object()
@@ -50,9 +50,12 @@ public class ContactServiceImpl implements ContactService {
                     .value(contact.getLastName())
                     .key("emails")
                     .value(contact.getEmails())
+                    .key("images")
+                    .value(contact.getImages())
                 .endObject()
             .endObject()
         .toString();
+        return jsonContact;
     }
 
 }

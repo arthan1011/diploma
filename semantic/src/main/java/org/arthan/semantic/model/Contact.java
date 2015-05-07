@@ -20,6 +20,7 @@ public class Contact {
     private String firstName;
     private String lastName;
     private List<String> emails = Lists.newArrayList();
+    private List<String> images = Lists.newArrayList();
 
     public String getFirstName() {
         return firstName;
@@ -53,9 +54,18 @@ public class Contact {
         this.id = id;
     }
 
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+
     public static Contact create(Contact contact, long id) {
         Contact result = new Contact();
         result.setEmails(Lists.newArrayList(contact.getEmails()));
+        result.setImages(Lists.newArrayList(contact.getImages()));
         result.setFirstName(contact.getFirstName());
         result.setLastName(contact.getLastName());
         result.setId(id);
