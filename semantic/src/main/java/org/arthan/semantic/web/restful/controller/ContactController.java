@@ -1,16 +1,14 @@
 package org.arthan.semantic.web.restful.controller;
 
 import org.arthan.semantic.service.ContactService;
+import org.arthan.semantic.service.ImageService;
+import org.arthan.semantic.util.FileUtils;
+import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletContext;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 /**
  * Created by artur.shamsiev on 22.04.2015.
@@ -22,6 +20,8 @@ public class ContactController {
 
     @Autowired
     ContactService contactService;
+    @Autowired
+    ImageService imageService;
     @Autowired
     ServletContext servletContext;
 
@@ -37,27 +37,41 @@ public class ContactController {
         return contactService.findContact(id);
     }
 
-    @RequestMapping(value = "/image", method = RequestMethod.POST)
+    @RequestMapping(value = "/image/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public String addImage(@RequestParam String imagePath) {
+    public String addImage(
+            @RequestParam String imagePath,
+            @PathVariable String id) {
         String dataPath = servletContext.getRealPath("/data");
 
-        if (!imagePath.startsWith(System.getProperty("user.home"))) {
-            return null;
+        if (!imagePath.startsWith(FileUtils.USER_HOME)) {
+            // added file should always be in user home directory
+            return new JSONStringer()
+                .object()
+                    .key("answer")
+                    .object()
+                        .key("status")
+                        .value("not-user")
+                    .endObject()
+                .endObject()
+            .toString();
         }
-        String image = "";
-        String appPath = dataPath + image;
-        String path = System.getProperty("user.home") + "/" + image;
 
-        FileInputStream fis;
-        Path appFile = new File(appPath).toPath();
-        try {
-            fis = new FileInputStream(path);
-            Files.copy(fis, appFile);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        String image = extractRelativeImagePath(imagePath);
+        String webImagePath = dataPath + image;
+        File webImage = new File(webImagePath);
+
+        // если файла не существует, копируем его на сервер
+        if (!webImage.exists()) {
+            FileUtils.copyFile(image, webImagePath);
         }
+
+        imageService.addImageToGraphForContact(image, id);
 
         return null;
+    }
+
+    private String extractRelativeImagePath(String imagePath) {
+        return imagePath.split(FileUtils.USER_HOME)[1];
     }
 }

@@ -1,6 +1,7 @@
 package org.arthan.semantic.util;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Properties;
 
 /**
@@ -9,6 +10,7 @@ import java.util.Properties;
  * Project - semantic
  */
 public class FileUtils {
+    public static final String USER_HOME = System.getProperty("user.home");
     private static Properties prop;
 
     static {
@@ -49,5 +51,17 @@ public class FileUtils {
 
     public static boolean modelFileExists() {
         return new File(DEFAULT_MODEL_FILE).exists();
+    }
+
+    public static void copyFile(String source, String target) {
+        // such file not exists in web app data directory
+        String absoluteImagePath = USER_HOME + "/" + source;
+        try {
+            Files.copy(
+                    new FileInputStream(absoluteImagePath),
+                    new File(target).toPath());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -72,6 +72,32 @@
             img.prop('src', url);
             img.addClass('sImg');
             return img;
+        },
+
+        btn: function (options) {
+            var button = $('<button type="button"></button>');
+
+            if (arguments.length == 0) {
+                return button;
+            }
+            if (options.id) {
+                button.prop('id', options.id);
+            }
+            if (options.text) {
+                button.text(options.text);
+            }
+            if (options.onclick) {
+                button.on('click', options.onclick);
+            }
+
+            return button;
+        },
+
+        tInput: function (id) {
+            var imagePathInput = $('<input type=text>');
+            imagePathInput.prop('id', id);
+
+            return imagePathInput;
         }
 
     };

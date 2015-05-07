@@ -41,10 +41,52 @@
             function createImagesTabItem(imageProp, contact) {
                 const fromContactPath = '../../data/';
 
+                function addImage() {
+                    sendImage();
+                    //location.reload();
+                }
+
+                function sendImage() {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://localhost:8080/semantic/restful/contacts/image/' + sem.Utils.id,
+                        headers: {
+                            Accept : "text/plain; charset=utf-8"
+                        },
+                        dataType: 'json',
+                        data: {
+                            imagePath: getImagePathInput()
+                        },
+                        success: function(data, status, jqXHR) {
+                            var answer = data['answer'];
+
+                            if (answer.status == 'exists') {
+                                alert('Данное изображение уже существует!')
+                            }
+                            if (answer.status == 'not-user') {
+                                alert('Можно добавлять только изображения из домашнего каталога')
+                            }
+                            console.log('Image added!');
+                        }
+                    })
+                }
+
+                function getImagePathInput() {
+                    return $('#imagePathInput').val();
+                }
+
                 var tabItem = sem.Utils.div(imageProp);
                 var imageControls = sem.Utils.div('contact-images-control');
-                imageControls.append($('<button type="button">Добавить фото</button>'));
                 tabItem.append(imageControls);
+
+                imageControls.append(sem.Utils.btn({
+                        id: 'addImageBtn',
+                        text: 'Добавить фото',
+                        onclick: addImage
+                    })
+                );
+
+                imageControls.append(sem.Utils.tInput('imagePathInput'));
 
                 var imageContainer = sem.Utils.div('contact-image-container');
                 imageContainer.css('margin-top', '5px');
