@@ -1,4 +1,4 @@
-package org.arthan.semantic.service;
+package org.arthan.semantic.service.impl;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Lists;
@@ -12,6 +12,8 @@ import ezvcard.Ezvcard;
 import ezvcard.VCard;
 import org.apache.commons.collections4.CollectionUtils;
 import org.arthan.semantic.model.Contact;
+import org.arthan.semantic.service.GraphVCardService;
+import org.arthan.semantic.service.VCardService;
 import org.arthan.semantic.service.graph.GraphRepository;
 import org.arthan.semantic.service.graph.ResourceType;
 import org.arthan.semantic.util.GraphUtils;

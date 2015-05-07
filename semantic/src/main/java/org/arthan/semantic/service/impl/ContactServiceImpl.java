@@ -1,7 +1,9 @@
-package org.arthan.semantic.service;
+package org.arthan.semantic.service.impl;
 
 import com.google.common.base.Strings;
 import org.arthan.semantic.model.Contact;
+import org.arthan.semantic.service.ContactService;
+import org.arthan.semantic.service.GraphVCardService;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

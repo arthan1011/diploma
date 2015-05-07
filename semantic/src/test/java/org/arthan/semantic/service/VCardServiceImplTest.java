@@ -2,6 +2,7 @@ package org.arthan.semantic.service;
 
 import com.google.common.collect.Lists;
 import org.arthan.semantic.model.Contact;
+import org.arthan.semantic.service.impl.VCardServiceImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
