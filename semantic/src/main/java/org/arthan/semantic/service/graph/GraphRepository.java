@@ -2,6 +2,8 @@ package org.arthan.semantic.service.graph;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.RDF;
 import org.arthan.semantic.util.FileUtils;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -30,6 +32,7 @@ public class GraphRepository {
 
     private void initModel() {
         model = ModelFactory.createDefaultModel();
+        model.setNsPrefix("arlm", Props.URI);
         if (FileUtils.modelFileExists()) {
             model.read(FileUtils.modelIS(), null);
         }
@@ -43,5 +46,15 @@ public class GraphRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Resource addResource(String uri, String typeUri) {
+        Resource res = getModel().createResource(uri);
+        res.addProperty(RDF.type, typeUri);
+        return res;
+    }
+
+    public Resource getResource(String uri) {
+        return getModel().getResource(uri);
     }
 }

@@ -6,11 +6,9 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.SimpleSelector;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.VCARD;
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
-import org.apache.commons.collections4.CollectionUtils;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.service.GraphVCardService;
 import org.arthan.semantic.service.VCardService;
@@ -130,7 +128,7 @@ public class VCardServiceImpl implements VCardService {
     }
 
     private void create(Contact contact) {
-        Resource res = addResource(Contact.URI + contact.getId(),  ResourceType.CONTACT.getUri());
+        Resource res = graphRep.addResource(Contact.URI + contact.getId(),  ResourceType.CONTACT.getUri());
         res.addProperty(VCARD.Given, contact.getFirstName());
         res.addProperty(VCARD.Family, contact.getLastName());
         for (String email : contact.getEmails()) {
@@ -141,7 +139,7 @@ public class VCardServiceImpl implements VCardService {
     private void createContacts(List<Contact> contacts, long lastContactID) {
         for (Contact contact : contacts) {
             String uri = Contact.URI + ++lastContactID;
-            Resource res = addResource(uri, ResourceType.CONTACT.getUri());
+            Resource res = graphRep.addResource(uri, ResourceType.CONTACT.getUri());
 
             res.addProperty(VCARD.Given, contact.getFirstName());
             res.addProperty(VCARD.Family, contact.getLastName());
@@ -149,12 +147,6 @@ public class VCardServiceImpl implements VCardService {
                 res.addProperty(VCARD.EMAIL, email);
             }
         }
-    }
-
-    private Resource addResource(String uri, String typeUri) {
-        Resource res = graphRep.getModel().createResource(uri);
-        res.addProperty(RDF.type, typeUri);
-        return res;
     }
 
     private String getContactsString() {

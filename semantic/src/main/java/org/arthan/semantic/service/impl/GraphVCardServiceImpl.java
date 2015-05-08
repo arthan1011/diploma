@@ -5,8 +5,10 @@ import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.VCARD;
 import org.arthan.semantic.model.Contact;
+import org.arthan.semantic.model.File;
 import org.arthan.semantic.service.GraphVCardService;
 import org.arthan.semantic.service.graph.GraphRepository;
+import org.arthan.semantic.service.graph.Props;
 import org.arthan.semantic.service.graph.ResourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,8 +42,7 @@ public class GraphVCardServiceImpl implements GraphVCardService {
 
     @Override
     public Contact findContact(String id) {
-        Model model = graphRepository.getModel();
-        Resource resContact = model.getResource(Contact.URI + id);
+        Resource resContact = graphRepository.getResource(Contact.URI + id);
         return contactFromResource(resContact);
     }
 
@@ -50,10 +51,19 @@ public class GraphVCardServiceImpl implements GraphVCardService {
         newContact.setId(Contact.extractID(resContact.getURI()));
         newContact.setFirstName(resContact.getProperty(VCARD.Given).getObject().toString());
         newContact.setLastName(resContact.getProperty(VCARD.Family).getObject().toString());
+
         StmtIterator emailsIterator = resContact.listProperties(VCARD.EMAIL);
         while (emailsIterator.hasNext()) {
             Statement next = emailsIterator.next();
             newContact.getEmails().add(next.getObject().toString());
+        }
+
+        StmtIterator imgIterator = resContact.listProperties(Props.IMAGE);
+        while (imgIterator.hasNext()) {
+            Statement next = imgIterator.next();
+            String imgUri = next.getObject().asResource().getURI();
+            File file = File.fromURI(imgUri);
+            newContact.getImages().add(file);
         }
         return newContact;
     }

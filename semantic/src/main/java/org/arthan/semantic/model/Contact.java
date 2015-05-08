@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.Resource;
 
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +21,7 @@ public class Contact {
     private String firstName;
     private String lastName;
     private List<String> emails = Lists.newArrayList();
-    private List<String> images = Lists.newArrayList();
+    private List<File> images = Lists.newArrayList();
 
     public String getFirstName() {
         return firstName;
@@ -54,11 +55,11 @@ public class Contact {
         this.id = id;
     }
 
-    public List<String> getImages() {
+    public List<File> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
+    public void setImages(List<File> images) {
         this.images = images;
     }
 

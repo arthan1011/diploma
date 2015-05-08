@@ -1,4 +1,4 @@
-package org.arthan.semantic.service;
+package org.arthan.semantic.service.impl;
 
 import com.google.common.collect.Lists;
 import org.arthan.semantic.model.Contact;

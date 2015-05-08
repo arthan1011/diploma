@@ -66,6 +66,10 @@
                             if (answer.status == 'not-user') {
                                 alert('Можно добавлять только изображения из домашнего каталога')
                             }
+                            if (answer.status == 'added') {
+                                alert('Изображение успешно добавлено');
+                                location.reload();
+                            }
                             console.log('Image added!');
                         }
                     })
@@ -94,7 +98,7 @@
 
                 var contactImages = contact[imageProp];
                 for (var i = 0; i < contactImages.length; i++) {
-                    var img = sem.Utils.sImg(fromContactPath + contactImages[i]);
+                    var img = sem.Utils.sImg(fromContactPath + contactImages[i].path);
                     imageContainer.append(img);
                 }
 

@@ -53,15 +53,47 @@ public class FileUtils {
         return new File(DEFAULT_MODEL_FILE).exists();
     }
 
-    public static void copyFile(String source, String target) {
+    /**
+     * Копирует файл из одного места в другое. Если файл-назначение существует, перезаписывае его.
+     *
+     * @param absSource абсолютный путь до исходного файла
+     * @param absTarget абсолютный путь до назначения
+     */
+    public static void copyFile(String absSource, String absTarget) {
         // such file not exists in web app data directory
-        String absoluteImagePath = USER_HOME + "/" + source;
+        File targetFile = new File(absTarget);
+
+        if (targetFile.exists()) {
+            targetFile.delete();
+        }
+
         try {
             Files.copy(
-                    new FileInputStream(absoluteImagePath),
-                    new File(target).toPath());
+                    new FileInputStream(absSource),
+                    targetFile.toPath());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static boolean inHomeDirectory(String imagePath) {
+        return imagePath.startsWith(USER_HOME);
+    }
+
+    /**
+     * Отсекает от имени файла путь до домашнего каталога пользователя
+     *
+     * @param imagePath путь до файла в домашнем каталоге
+     * @return
+     */
+    public static String cutOffUserHome(String imagePath) {
+        if (!inHomeDirectory(imagePath)) {
+            return imagePath;
+        }
+        return imagePath.substring(USER_HOME.length() + 1);
+    }
+
+    public static String toUnixPath(String path) {
+        return path.replaceAll("\\\\", "/");
     }
 }
