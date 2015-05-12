@@ -54,6 +54,8 @@ public class ContactServiceImpl implements ContactService {
                     .value(contact.getEmails())
                     .key("images")
                     .value(contact.getImages())
+                    .key("documents")
+                    .value(contact.getDocuments())
                 .endObject()
             .endObject()
         .toString();

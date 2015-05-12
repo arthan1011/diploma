@@ -6,6 +6,9 @@ package org.arthan.semantic.model;
 public class File {
     public static final String URI = "file://artur.lazy-magister.org/data/";
 
+    private String path;
+    private String title;
+
     private File(String path) {
         this.path = path;
     }
@@ -17,14 +20,20 @@ public class File {
         return new File(uri.substring(URI.length()));
     }
 
-    private String path;
-
     public String getPath() {
         return path;
     }
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override

@@ -19,32 +19,58 @@
                 return sem.Utils.div(prop, contact[prop]);
             }
 
-            function createListTabItem(listProp, Itemslist) {
-                var tabItem = sem.Utils.div(listProp);
-                tabItem.append(sem.Utils.uList(Itemslist));
+            function createListTabItem(itemsList, listProp) {
+                var tabItem;
+
+                // (itemsList)
+                if (arguments.length == 1) {
+                    tabItem = sem.Utils.div();
+                }
+                // (listProp, itemsList)
+                if (arguments.length == 2) {
+                    tabItem = sem.Utils.div(listProp);
+                }
+
+                tabItem.append(sem.Utils.uList(itemsList));
                 return tabItem;
             }
 
             function createEmailsTabItem(listProp, contact) {
-                var mailItemHtmlList = [];
                 var mails = contact[listProp];
-                for (var i = 0; i < mails.length; i++) {
-                    var mailTo = sem.Utils.anchor();
-                    mailTo.prop('href', 'mailto:' + mails[i]);
-                    mailTo.text(mails[i]);
-                    mailItemHtmlList[i] = mailTo[0].outerHTML;
-                }
 
-                return createListTabItem(listProp, mailItemHtmlList);
+                var listTabItem = createListTabItem(
+                    mails.map(function (item, i, arr) {
+                        var mailTo = sem.Utils.anchor();
+                        mailTo.prop('href', 'mailto:' + item);
+                        mailTo.text(item);
+                        return mailTo[0].outerHTML;
+                    }),
+                    listProp
+                );
+                return listTabItem;
+            }
+
+            function createDocumentsTabItem(docProp, contact) {
+                var tabItem = sem.Utils.div(docProp);
+
+                tabItem.append(sem.Utils.addFileControl({
+                    id: 'contact-documents-control',
+                    inputID: 'documentPathInput',
+                    btnText: 'Добавить документ',
+                    onAdd: function() {alert('this')}
+                }));
+
+                var list = contact[docProp].map(function(item, i, arr) {
+                    return item['title'];
+                });
+                if (list) {
+                    tabItem.append(createListTabItem(list));
+                }
+                return tabItem;
             }
 
             function createImagesTabItem(imageProp, contact) {
                 const fromContactPath = '../../data/';
-
-                function addImage() {
-                    sendImage();
-                    //location.reload();
-                }
 
                 function sendImage() {
                     $.ajax({
@@ -64,13 +90,12 @@
                                 alert('Данное изображение уже существует!')
                             }
                             if (answer.status == 'not-user') {
-                                alert('Можно добавлять только изображения из домашнего каталога')
+                                alert('Можно добавлять только файлы из домашнего каталога')
                             }
                             if (answer.status == 'added') {
                                 alert('Изображение успешно добавлено');
                                 location.reload();
                             }
-                            console.log('Image added!');
                         }
                     })
                 }
@@ -80,17 +105,13 @@
                 }
 
                 var tabItem = sem.Utils.div(imageProp);
-                var imageControls = sem.Utils.div('contact-images-control');
-                tabItem.append(imageControls);
-
-                imageControls.append(sem.Utils.btn({
-                        id: 'addImageBtn',
-                        text: 'Добавить фото',
-                        onclick: addImage
-                    })
-                );
-
-                imageControls.append(sem.Utils.tInput('imagePathInput'));
+                tabItem.append(sem.Utils.addFileControl({
+                        id: 'contact-images-control',
+                        inputID: 'imagePathInput',
+                        btnText: 'Добавить фото',
+                        onAdd: sendImage
+                    }
+                ));
 
                 var imageContainer = sem.Utils.div('contact-image-container');
                 imageContainer.css('margin-top', '5px');
@@ -109,12 +130,14 @@
             tabTitleList.append(createTabTitleItem('lastName', "Фамилия"));
             tabTitleList.append(createTabTitleItem('emails', "Почта"));
             tabTitleList.append(createTabTitleItem('images', "Фото"));
-            result = result.add(tabTitleList);
+            tabTitleList.append(createTabTitleItem('documents', "Документы"));
 
+            result = result.add(tabTitleList);
             result = result.add(createTabItem('firstName', contact));
             result = result.add(createTabItem('lastName', contact));
             result = result.add(createEmailsTabItem('emails', contact));
             result = result.add(createImagesTabItem('images', contact));
+            result = result.add(createDocumentsTabItem('documents', contact));
             return result;
         }
     };

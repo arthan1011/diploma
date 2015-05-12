@@ -22,6 +22,7 @@ public class Contact {
     private String lastName;
     private List<String> emails = Lists.newArrayList();
     private List<File> images = Lists.newArrayList();
+    private List<File> documents = Lists.newArrayList();
 
     public String getFirstName() {
         return firstName;
@@ -61,6 +62,14 @@ public class Contact {
 
     public void setImages(List<File> images) {
         this.images = images;
+    }
+
+    public List<File> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<File> documents) {
+        this.documents = documents;
     }
 
     public static Contact create(Contact contact, long id) {
