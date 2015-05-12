@@ -51,13 +51,42 @@
             }
 
             function createDocumentsTabItem(docProp, contact) {
+
+                function getDocPathInput() {
+                    return $('#documentPathInput').val();
+                }
+
+                function sendDoc() {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'http://localhost:8080/semantic/restful/contacts/document/' + sem.Utils.id,
+                        headers: {
+                            Accept : "text/plain; charset=utf-8"
+                        },
+                        dataType: 'json',
+                        data: {
+                            filePath: getDocPathInput()
+                        },
+                        success: function(data, status, jqXHR) {
+                            var answer = data['answer'];
+
+                            if (answer.status == 'not-user') {
+                                alert('Можно добавлять только файлы из домашнего каталога')
+                            }
+                            if (answer.status == 'added') {
+                                alert('Документ успешно добавлен');
+                                location.reload();
+                            }
+                        }
+                    })
+                }
                 var tabItem = sem.Utils.div(docProp);
 
                 tabItem.append(sem.Utils.addFileControl({
                     id: 'contact-documents-control',
                     inputID: 'documentPathInput',
                     btnText: 'Добавить документ',
-                    onAdd: function() {alert('this')}
+                    onAdd: sendDoc
                 }));
 
                 var list = contact[docProp].map(function(item, i, arr) {

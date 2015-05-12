@@ -48,4 +48,17 @@ public class ContactController {
         return imageService.addImage(imagePath, absWebImagePath, id);
     }
 
+    @RequestMapping(value = "/documents/{contactID}", method = RequestMethod.GET)
+    @ResponseBody
+    public String addDocument(
+            @RequestParam String filePath,
+            @PathVariable String contactID) {
+
+        String webDataPath = servletContext.getRealPath("/data");
+        String image = FileUtils.cutOffUserHome(filePath);
+        String absWebImagePath = webDataPath + image;
+
+        return imageService.addImage(filePath, absWebImagePath, contactID);
+    }
+
 }
