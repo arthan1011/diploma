@@ -5,5 +5,7 @@ package org.arthan.semantic.service;
  */
 public interface GraphFileService {
 
-    void addFileToGraphForContact(String filePath, String contactID);
+    void addImageToGraphForContact(String filePath, String contactID);
+
+    void addDocumentToGraphForContact(String documentPath, String documentName, String contactID);
 }

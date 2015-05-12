@@ -1,6 +1,8 @@
 package org.arthan.semantic.service.impl;
 
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.DC;
+import com.hp.hpl.jena.vocabulary.VCARD;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.model.File;
 import org.arthan.semantic.service.GraphFileService;
@@ -21,10 +23,20 @@ public class GraphFileServiceImpl implements GraphFileService {
     GraphRepository graphRepository;
 
     @Override
-    public void addFileToGraphForContact(String filePath, String contactID) {
+    public void addImageToGraphForContact(String filePath, String contactID) {
         Resource fileRes = graphRepository.addResource(File.URI + filePath, ResourceType.FILE.getUri());
         Resource contactRes = graphRepository.getResource(Contact.URI + contactID);
         contactRes.addProperty(Props.IMAGE, fileRes);
+
+        graphRepository.writeGraph();
+    }
+
+    @Override
+    public void addDocumentToGraphForContact(String documentPath, String documentName, String contactID) {
+        Resource fileRes = graphRepository.addResource(File.URI + documentPath, ResourceType.FILE.getUri());
+        Resource contactRes = graphRepository.getResource(Contact.URI + contactID);
+        fileRes.addProperty(DC.creator, contactRes);
+        fileRes.addProperty(DC.title, documentName);
 
         graphRepository.writeGraph();
     }

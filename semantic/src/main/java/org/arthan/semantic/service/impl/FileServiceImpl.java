@@ -1,7 +1,7 @@
 package org.arthan.semantic.service.impl;
 
 import org.arthan.semantic.service.GraphFileService;
-import org.arthan.semantic.service.ImageService;
+import org.arthan.semantic.service.FileService;
 import org.arthan.semantic.util.FileUtils;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class ImageServiceImpl implements ImageService {
+public class FileServiceImpl implements FileService {
 
 
     @Autowired
@@ -21,7 +21,7 @@ public class ImageServiceImpl implements ImageService {
     private void addImageToGraphForContact(String absSysImagePath, String contactID) {
         String image = FileUtils.cutOffUserHome(absSysImagePath);
         image = FileUtils.toUnixPath(image);
-        graphFileService.addFileToGraphForContact(image, contactID);
+        graphFileService.addImageToGraphForContact(image, contactID);
         // file:///data/Pictures/Desert.jpg
     }
 
@@ -37,10 +37,33 @@ public class ImageServiceImpl implements ImageService {
         copyFileToServer(absSysImagePath, absWebImagePath);
         addImageToGraphForContact(absSysImagePath, id);
 
-        return imageAddedAnswer();
+        return fileAddedAnswer();
     }
 
-    private String imageAddedAnswer() {
+    @Override
+    public String addDocument(String absSysDocPath, String contactID) {
+        if (!FileUtils.inHomeDirectory(absSysDocPath)) {
+            return notInHomeAnswer();
+        }
+
+        addDocumentToGraphForContact(absSysDocPath, contactID);
+
+        return fileAddedAnswer();
+    }
+
+    private void addDocumentToGraphForContact(String absSysDocPath, String contactID) {
+        String unixPath = FileUtils.toUnixPath(absSysDocPath);
+        String documentPath = FileUtils.cutOffUserHome(unixPath);
+        String documentName = FileUtils.extractFileName(unixPath);
+
+        graphFileService.addDocumentToGraphForContact(
+                documentPath,
+                documentName,
+                contactID
+        );
+    }
+
+    private String fileAddedAnswer() {
         return new JSONStringer()
             .object()
                 .key("answer")

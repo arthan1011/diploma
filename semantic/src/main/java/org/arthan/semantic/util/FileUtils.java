@@ -1,5 +1,8 @@
 package org.arthan.semantic.util;
 
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.util.Properties;
@@ -95,5 +98,11 @@ public class FileUtils {
 
     public static String toUnixPath(String path) {
         return path.replaceAll("\\\\", "/");
+    }
+
+    public static String extractFileName(String absFilePath) {
+        Preconditions.checkNotNull(Strings.emptyToNull(absFilePath));
+        String[] pathArray = absFilePath.split("/");
+        return pathArray[pathArray.length - 1].split("\\.")[0];
     }
 }

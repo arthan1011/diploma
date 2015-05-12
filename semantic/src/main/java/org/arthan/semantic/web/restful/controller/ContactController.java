@@ -1,7 +1,7 @@
 package org.arthan.semantic.web.restful.controller;
 
 import org.arthan.semantic.service.ContactService;
-import org.arthan.semantic.service.ImageService;
+import org.arthan.semantic.service.FileService;
 import org.arthan.semantic.util.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ public class ContactController {
     @Autowired
     ContactService contactService;
     @Autowired
-    ImageService imageService;
+    FileService fileService;
     @Autowired
     ServletContext servletContext;
 
@@ -45,7 +45,7 @@ public class ContactController {
         String image = FileUtils.cutOffUserHome(imagePath);
         String absWebImagePath = webDataPath + image;
 
-        return imageService.addImage(imagePath, absWebImagePath, id);
+        return fileService.addImage(imagePath, absWebImagePath, id);
     }
 
     @RequestMapping(value = "/documents/{contactID}", method = RequestMethod.GET)
@@ -58,7 +58,7 @@ public class ContactController {
         String image = FileUtils.cutOffUserHome(filePath);
         String absWebImagePath = webDataPath + image;
 
-        return imageService.addImage(filePath, absWebImagePath, contactID);
+        return fileService.addDocument(filePath, contactID);
     }
 
 }
