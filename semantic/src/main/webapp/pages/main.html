@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Главная</title>
     <link rel="stylesheet" href="../resources/js/jquery-ui-1.11.4/jquery-ui.min.css" />
     <link rel="stylesheet" href="../resources/css/style.css" />
     <script src="../resources/js/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
@@ -16,10 +16,12 @@
         $(function() {
             Sem.Main.loadInfo({
                 tabsTargetID: 'tabs',
+                contactPage: 'entity/contact.html',
                 url: 'http://localhost:8080/semantic/restful/main/info'
             });
         });
     </script>
+    <h1>Главная страница</h1>
     <div id="tabs"></div>
 </body>
 </html>

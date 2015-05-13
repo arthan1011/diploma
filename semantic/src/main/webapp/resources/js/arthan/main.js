@@ -7,9 +7,17 @@
 
     mainObject.createTabs = function(main) {
         function createContactsTabItem(contactProp, contacts) {
+            function createContactListItem(contact) {
+                var link = Sem.Utils.anchor();
+                var contactHref = mainObject._contactPage + '?id=' + contact.id;
+                link.prop('href', contactHref);
+                link.text(contact['firstName'] + ' ' + contact['lastName']);
+                return link[0].outerHTML;
+            }
+
             var tabItem = Sem.Utils.createListTabItem(
                 contacts.map(function (item, id, arr) {
-                    return item['firstName'] + ' ' + item['lastName'];
+                    return createContactListItem(item);
                 }),
                 contactProp
             );
@@ -28,6 +36,8 @@
     };
 
     mainObject.loadInfo = function(options) {
+        mainObject._contactPage = options['contactPage'];
+
         $.ajax({
             type: 'GET',
             url: options['url'],

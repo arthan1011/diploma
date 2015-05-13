@@ -5,37 +5,14 @@
 (function(sem) {
     var contactObject = {
         createTabs: function(contact) {
-            function createTabTitleItem(prop, title) {
-                var item = sem.Utils.lItem();
-                var link = sem.Utils.anchor('#' + prop, title);
-                item.append(link);
-                return item;
-            }
-
             function createTabItem(prop, contact) {
                 return sem.Utils.div(prop, contact[prop]);
-            }
-
-            function createListTabItem(itemsList, listProp) {
-                var tabItem;
-
-                // (itemsList)
-                if (arguments.length == 1) {
-                    tabItem = sem.Utils.div();
-                }
-                // (listProp, itemsList)
-                if (arguments.length == 2) {
-                    tabItem = sem.Utils.div(listProp);
-                }
-
-                tabItem.append(sem.Utils.uList(itemsList));
-                return tabItem;
             }
 
             function createEmailsTabItem(listProp, contact) {
                 var mails = contact[listProp];
 
-                var listTabItem = createListTabItem(
+                var listTabItem = sem.Utils.createListTabItem(
                     mails.map(function (item, i, arr) {
                         var mailTo = sem.Utils.anchor();
                         mailTo.prop('href', 'mailto:' + item);
@@ -90,7 +67,7 @@
                     return item['title'];
                 });
                 if (list) {
-                    tabItem.append(createListTabItem(list));
+                    tabItem.append(sem.Utils.createListTabItem(list));
                 }
                 return tabItem;
             }
@@ -153,13 +130,13 @@
             }
 
             var result = $();
-            var tabTitleList = Sem.Utils.uList();
+            var tabTitleList = sem.Utils.uList();
 
-            tabTitleList.append(createTabTitleItem('firstName', "Имя"));
-            tabTitleList.append(createTabTitleItem('lastName', "Фамилия"));
-            tabTitleList.append(createTabTitleItem('emails', "Почта"));
-            tabTitleList.append(createTabTitleItem('images', "Фото"));
-            tabTitleList.append(createTabTitleItem('documents', "Документы"));
+            tabTitleList.append(sem.Utils.createTabTitleItem('firstName', "Имя"));
+            tabTitleList.append(sem.Utils.createTabTitleItem('lastName', "Фамилия"));
+            tabTitleList.append(sem.Utils.createTabTitleItem('emails', "Почта"));
+            tabTitleList.append(sem.Utils.createTabTitleItem('images', "Фото"));
+            tabTitleList.append(sem.Utils.createTabTitleItem('documents', "Документы"));
 
             result = result.add(tabTitleList);
             result = result.add(createTabItem('firstName', contact));
