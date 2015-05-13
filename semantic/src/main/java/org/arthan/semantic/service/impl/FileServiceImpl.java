@@ -52,9 +52,9 @@ public class FileServiceImpl implements FileService {
     }
 
     private void addDocumentToGraphForContact(String absSysDocPath, String contactID) {
-        String unixPath = FileUtils.toUnixPath(absSysDocPath);
-        String documentPath = FileUtils.cutOffUserHome(unixPath);
-        String documentName = FileUtils.extractFileName(unixPath);
+        String documentPath = FileUtils.cutOffUserHome(absSysDocPath);
+        documentPath = FileUtils.toUnixPath(documentPath);
+        String documentName = FileUtils.extractFileName(documentPath);
 
         graphFileService.addDocumentToGraphForContact(
                 documentPath,

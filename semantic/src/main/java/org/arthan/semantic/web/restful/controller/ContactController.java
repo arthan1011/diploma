@@ -35,30 +35,26 @@ public class ContactController {
         return contactService.findContact(id);
     }
 
-    @RequestMapping(value = "/image/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/image/{contactID}", method = RequestMethod.POST)
     @ResponseBody
     public String addImage(
             @RequestParam String imagePath,
-            @PathVariable String id) {
+            @PathVariable String contactID) {
 
         String webDataPath = servletContext.getRealPath("/data");
         String image = FileUtils.cutOffUserHome(imagePath);
         String absWebImagePath = webDataPath + image;
 
-        return fileService.addImage(imagePath, absWebImagePath, id);
+        return fileService.addImage(imagePath, absWebImagePath, contactID);
     }
 
-    @RequestMapping(value = "/documents/{contactID}", method = RequestMethod.GET)
+    @RequestMapping(value = "/document/{id}", method = RequestMethod.POST)
     @ResponseBody
     public String addDocument(
             @RequestParam String filePath,
-            @PathVariable String contactID) {
+            @PathVariable String id) {
 
-        String webDataPath = servletContext.getRealPath("/data");
-        String image = FileUtils.cutOffUserHome(filePath);
-        String absWebImagePath = webDataPath + image;
-
-        return fileService.addDocument(filePath, contactID);
+        return fileService.addDocument(filePath, id);
     }
 
 }

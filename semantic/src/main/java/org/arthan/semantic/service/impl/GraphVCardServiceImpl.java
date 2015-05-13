@@ -6,6 +6,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.VCARD;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.model.File;
+import org.arthan.semantic.service.GraphFileService;
 import org.arthan.semantic.service.GraphVCardService;
 import org.arthan.semantic.service.graph.GraphRepository;
 import org.arthan.semantic.service.graph.Props;
@@ -26,6 +27,8 @@ public class GraphVCardServiceImpl implements GraphVCardService {
 
     @Autowired
     GraphRepository graphRepository;
+    @Autowired
+    GraphFileService graphFileService;
 
     @Override
     public List<Contact> allContacts() {
@@ -65,6 +68,10 @@ public class GraphVCardServiceImpl implements GraphVCardService {
             File file = File.fromURI(imgUri);
             newContact.getImages().add(file);
         }
+
+        List<File> documentsCreatedByContact = graphFileService.findFilesByCreator(resContact.getURI());
+        newContact.getDocuments().addAll(documentsCreatedByContact);
+
         return newContact;
     }
 
