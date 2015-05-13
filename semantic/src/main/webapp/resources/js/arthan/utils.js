@@ -100,7 +100,7 @@
         return imagePathInput;
     };
 
-    utils.addFileControl = function(options) {
+    utils.addFileControl = function (options) {
         var imageControls = utils.div(options.id);
         imageControls.append(utils.btn({
                 id: 'addImageBtn',
@@ -112,6 +112,28 @@
         return imageControls;
     };
 
+    utils.createTabTitleItem = function (prop, title) {
+        var item = utils.lItem();
+        var link = utils.anchor('#' + prop, title);
+        item.append(link);
+        return item;
+    };
+
+    utils.createListTabItem = function (itemsList, listProp) {
+        var tabItem;
+
+        // (itemsList)
+        if (arguments.length == 1) {
+            tabItem = utils.div();
+        }
+        // (listProp, itemsList)
+        if (arguments.length == 2) {
+            tabItem = utils.div(listProp);
+        }
+
+        tabItem.append(utils.uList(itemsList));
+        return tabItem;
+    };
 
 
     utils.id = utils.param('id');

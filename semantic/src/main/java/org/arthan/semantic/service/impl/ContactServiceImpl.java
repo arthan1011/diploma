@@ -32,7 +32,6 @@ public class ContactServiceImpl implements ContactService {
                 .value(contactList)
             .endObject()
         .toString();
-        System.out.println(contactsJSON);
 
         return contactsJSON;
     }

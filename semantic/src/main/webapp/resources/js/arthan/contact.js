@@ -5,9 +5,6 @@
 (function(sem) {
     var contactObject = {
         createTabs: function(contact) {
-            var result = $();
-            var tabTitleList = Sem.Utils.uList();
-
             function createTabTitleItem(prop, title) {
                 var item = sem.Utils.lItem();
                 var link = sem.Utils.anchor('#' + prop, title);
@@ -154,6 +151,9 @@
 
                 return tabItem;
             }
+
+            var result = $();
+            var tabTitleList = Sem.Utils.uList();
 
             tabTitleList.append(createTabTitleItem('firstName', "Имя"));
             tabTitleList.append(createTabTitleItem('lastName', "Фамилия"));
