@@ -56,6 +56,12 @@
             <artifactId>json</artifactId>
             <version>20141113</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.mpatric</groupId>
+            <artifactId>mp3agic</artifactId>
+            <version>0.8.3</version>
+        </dependency>
     </dependencies>
 
 

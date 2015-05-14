@@ -17,6 +17,9 @@ public class File {
         this.title = FileUtils.extractFileName(path);
     }
 
+    public File() {
+    }
+
     public static File fromURI(String uri) {
         if (!uri.startsWith(URI)) {
             throw new IllegalArgumentException("File uri should starts with " + URI);
@@ -25,6 +28,11 @@ public class File {
     }
 
     public static File fromPath(String path) {
+        return new File(path);
+    }
+
+    public static File fromAbsPath(String absPath) {
+        String path = FileUtils.toUnixPath(FileUtils.cutOffUserHome(absPath));
         return new File(path);
     }
 

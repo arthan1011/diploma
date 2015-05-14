@@ -1,6 +1,6 @@
 package org.arthan.semantic.web.restful.controller;
 
-import org.arthan.semantic.service.FileService;
+import org.arthan.semantic.service.middle.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
