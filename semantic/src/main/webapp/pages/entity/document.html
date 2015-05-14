@@ -16,24 +16,9 @@
         $(function() {
             Sem.Document.loadInfo({
                 tabsTargetID: 'tabs',
-                documentPage: 'entity/contact.html',
-                url: 'http://localhost:8080/semantic/restful/document/info/' + Sem.Utils.id
+                contactPage: 'contact.html',
+                url: 'http://localhost:8080/semantic/restful/document/info?id=' + Sem.Utils.id
             });
-
-            $.ajax({
-                type: 'GET',
-                url: 'http://localhost:8080/semantic/restful/contacts/document/' + Sem.Utils.id,
-                headers: {
-                    Accept : "text/plain; charset=utf-8"
-                },
-                dataType: 'json',
-                success: function(data, status, jqXHR) {
-                    var contact = data['contact'];
-                    $('#tabs').append(Sem.Document.createTabs(contact));
-                    $('#tabs').tabs();
-
-                }
-        });
         });
     </script>
     <h1>Документ</h1>

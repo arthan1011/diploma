@@ -7,17 +7,17 @@
 
     mainObject.createTabs = function(main) {
         function createContactsTabItem(contactProp, contacts) {
-            function createContactListItem(contact) {
-                var link = Sem.Utils.anchor();
-                var contactHref = mainObject._contactPage + '?id=' + contact.id;
-                link.prop('href', contactHref);
-                link.text(contact['firstName'] + ' ' + contact['lastName']);
+            function contactListItem(contact) {
+                var link = sem.Utils.anchor(
+                    mainObject._contactPage + '?id=' + contact.id,
+                    contact['firstName'] + ' ' + contact['lastName']
+                );
                 return link[0].outerHTML;
             }
 
-            var tabItem = Sem.Utils.createListTabItem(
+            var tabItem = sem.Utils.createListTabItem(
                 contacts.map(function (item, id, arr) {
-                    return createContactListItem(item);
+                    return contactListItem(item);
                 }),
                 contactProp
             );
@@ -25,16 +25,24 @@
         }
 
         function createDocumentsTabItem(docProp, documents) {
+            function documentListItem(document) {
+                var link = sem.Utils.anchor(
+                    mainObject._documentPage + "?id=" + document['path'],
+                    document['title']
+                );
+                return link[0].outerHTML;
+            }
+
             return sem.Utils.createListTabItem(
                 documents.map(function (item, id, arr) {
-                    return item['title'];
+                    return documentListItem(item);
                 }),
                 docProp
             );
         }
 
         var result = $();
-        var tabTitleList = Sem.Utils.uList();
+        var tabTitleList = sem.Utils.uList();
 
         tabTitleList.append(sem.Utils.createTabTitleItem('contacts', "Мои контакты"));
         tabTitleList.append(sem.Utils.createTabTitleItem('documents', "Мои документы"));
@@ -48,7 +56,8 @@
 
     mainObject.loadInfo = function(options) {
         mainObject._contactPage = options['contactPage'];
-        
+        mainObject._documentPage = options['documentPage'];
+
         function onSuccess(data) {
             var main = data['main'];
             var $tabs = $('#' + options['tabsTargetID']);

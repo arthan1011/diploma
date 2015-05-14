@@ -7,14 +7,25 @@
 
     documentObject.createTabs = function(document) {
 
+        function createAuthorTabItem(prop, creator) {
+            var link = sem.Utils.anchor(
+                documentObject._contactPage + '?id=' + creator['id'],
+                creator['firstName'] + ' ' + creator['lastName']
+            );
+
+            var item = sem.Utils.div(prop);
+            item.append(link);
+            return item;
+        }
 
         var result = $();
+
         var tabTitleList = sem.Utils.uList();
 
         tabTitleList.append(sem.Utils.createTabTitleItem('author', "Автор"));
-
         result = result.add(tabTitleList);
-        result = result.add(sem.Utils.div("author", document['creator']));
+
+        result = result.add(createAuthorTabItem('author', document['creator']));
 
         return result;
     };
@@ -27,7 +38,7 @@
             $tabs.tabs();
         }
 
-        documentObject._documentPage = options['documentPage'];
+        documentObject._contactPage = options['contactPage'];
 
         sem.Utils.sendAjax({
             url: options['url'],

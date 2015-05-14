@@ -64,7 +64,10 @@
                 }));
 
                 var list = contact[docProp].map(function(item, i, arr) {
-                    return item['title'];
+                    return sem.Utils.anchor(
+                        'document.html?id=' + item['path'],
+                        item['title']
+                    )[0].outerHTML;
                 });
                 if (list) {
                     tabItem.append(sem.Utils.createListTabItem(list));
