@@ -11,4 +11,6 @@ public interface FileService {
 
     String addDocument(String filePath,
                        String contactID);
+
+    String findDocument(String documentID);
 }

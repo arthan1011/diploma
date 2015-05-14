@@ -135,6 +135,20 @@
         return tabItem;
     };
 
+    utils.sendAjax = function (options) {
+        $.ajax({
+            type: 'GET',
+            url: options['url'],
+            headers: {
+                Accept : "text/plain; charset=utf-8"
+            },
+            dataType: 'json',
+            success: function(data, status, jqXHR) {
+                options['onSuccess'].call(null, data);
+            }
+        });
+    };
+
 
     utils.id = utils.param('id');
     sem.Utils = utils;

@@ -1,5 +1,7 @@
 package org.arthan.semantic.model;
 
+import org.arthan.semantic.util.FileUtils;
+
 /**
  * Created by artur.shamsiev on 08.05.2015
  */
@@ -8,9 +10,11 @@ public class File {
 
     private String path;
     private String title;
+    private Contact creator;
 
     private File(String path) {
         this.path = path;
+        this.title = FileUtils.extractFileName(path);
     }
 
     public static File fromURI(String uri) {
@@ -18,6 +22,10 @@ public class File {
             throw new IllegalArgumentException("File uri should starts with " + URI);
         }
         return new File(uri.substring(URI.length()));
+    }
+
+    public static File fromPath(String path) {
+        return new File(path);
     }
 
     public String getPath() {
@@ -34,6 +42,14 @@ public class File {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Contact getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Contact creator) {
+        this.creator = creator;
     }
 
     @Override

@@ -16,4 +16,6 @@ public interface GraphFileService {
     List<File> findFilesByCreator(String creatorUri);
 
     List<File> allUserDocuments();
+
+    File findFileByID(String documentID);
 }

@@ -1,5 +1,6 @@
 package org.arthan.semantic.service.impl;
 
+import org.arthan.semantic.model.File;
 import org.arthan.semantic.service.GraphFileService;
 import org.arthan.semantic.service.FileService;
 import org.arthan.semantic.util.FileUtils;
@@ -50,6 +51,30 @@ public class FileServiceImpl implements FileService {
         addDocumentToGraphForContact(absSysDocPath, contactID);
 
         return fileAddedAnswer();
+    }
+
+    @Override
+    public String findDocument(String documentID) {
+        File document = graphFileService.findFileByID(documentID);
+        String documentJSON = new JSONStringer()
+            .object()
+                .key("document")
+                .object()
+                    .key("title")
+                    .value(document.getTitle())
+                    .key("creator")
+                    .object()
+                        .key("id")
+                        .value(document.getCreator().getId())
+                        .key("firstName")
+                        .value(document.getCreator().getFirstName())
+                        .key("lastName")
+                        .value(document.getCreator().getLastName())
+                    .endObject()
+                .endObject()
+            .endObject()
+        .toString();
+        return documentJSON;
     }
 
     private void addDocumentToGraphForContact(String absSysDocPath, String contactID) {

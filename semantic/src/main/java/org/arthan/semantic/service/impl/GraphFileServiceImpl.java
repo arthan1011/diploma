@@ -1,7 +1,9 @@
 package org.arthan.semantic.service.impl;
 
+import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.DC;
+import com.hp.hpl.jena.vocabulary.VCARD;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.model.File;
 import org.arthan.semantic.service.GraphFileService;
@@ -60,12 +62,29 @@ public class GraphFileServiceImpl implements GraphFileService {
 
     @Override
     public List<File> allUserDocuments() {
-        List<File> resultList;
         List<Resource> docResList = graphRepository.findResourcesWithType(ResourceType.FILE.getUri());
-        resultList = docResList.stream()
+        return docResList.stream()
                 .map(this::fileFromResource)
                 .collect(Collectors.toList());
-        return resultList;
+    }
+
+    @Override
+    public File findFileByID(String documentID) {
+        File file = File.fromPath(documentID);
+        String fileUri = File.URI + file.getPath();
+        Resource fileResource = graphRepository.getResource(fileUri);
+        Resource contactRes = fileResource.getPropertyResourceValue(DC.creator);
+
+        if (contactRes != null) {
+            Contact contact = new Contact();
+            contact.setId(Contact.extractID(contactRes.getURI()));
+            contact.setFirstName(contactRes.getProperty(VCARD.Given).getObject().toString());
+            contact.setLastName(contactRes.getProperty(VCARD.Family).getObject().toString());
+
+            file.setCreator(contact);
+        }
+
+        return file;
     }
 
     private File fileFromResource(Resource fileResource) {

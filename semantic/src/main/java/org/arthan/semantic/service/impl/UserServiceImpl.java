@@ -33,6 +33,8 @@ public class UserServiceImpl implements UserService {
                 .object()
                     .key("contacts")
                     .value(contactList)
+                    .key("documents")
+                    .value(documentList)
                 .endObject()
             .endObject()
         .toString();
