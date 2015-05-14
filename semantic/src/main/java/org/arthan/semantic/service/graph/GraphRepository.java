@@ -1,10 +1,7 @@
 package org.arthan.semantic.service.graph;
 
 import com.google.common.collect.Lists;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResIterator;
-import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.RDF;
 import org.arthan.semantic.model.User;
 import org.arthan.semantic.service.impl.GraphVCardServiceImpl;
@@ -15,7 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Arthur Shamsiev on 29.04.15.
@@ -75,5 +74,12 @@ public class GraphRepository {
     public List<Resource> findResourcesWithType(String type) {
         ResIterator contactIterator = getModel().listSubjectsWithProperty(RDF.type, type);
         return Lists.newArrayList(contactIterator);
+    }
+
+    public List<Resource> subjectsFromSelector(SimpleSelector findDoc) {
+        StmtIterator docsIterator = getModel().listStatements(findDoc);
+        ArrayList<Statement> docStatements = Lists.newArrayList(docsIterator);
+        return docStatements.stream()
+                .map(Statement::getSubject).collect(Collectors.toList());
     }
 }

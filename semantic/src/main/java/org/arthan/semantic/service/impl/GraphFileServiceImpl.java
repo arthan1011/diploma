@@ -1,6 +1,5 @@
 package org.arthan.semantic.service.impl;
 
-import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.DC;
 import org.arthan.semantic.model.Contact;
@@ -47,16 +46,15 @@ public class GraphFileServiceImpl implements GraphFileService {
 
     @Override
     public List<File> findFilesByCreator(String creatorUri) {
-        List<File> resultList = Lists.newArrayList();
+        List<File> resultList;
         Model model = graphRepository.getModel();
         SimpleSelector findDoc = new SimpleSelector(null, DC.creator, model.getResource(creatorUri));
-        StmtIterator docsIterator = model.listStatements(findDoc);
-        while (docsIterator.hasNext()) {
-            Statement next = docsIterator.next();
-            Resource document = next.getSubject();
-            File doc = fileFromResource(document);
-            resultList.add(doc);
-        }
+        List<Resource> docResList = graphRepository.subjectsFromSelector(findDoc);
+
+        resultList = docResList.stream()
+                .map(this::fileFromResource)
+                .collect(Collectors.toList());
+
         return resultList;
     }
 

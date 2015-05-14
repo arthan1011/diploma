@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Arthur Shamsiev on 27.04.15.
@@ -32,15 +33,10 @@ public class GraphVCardServiceImpl implements GraphVCardService {
 
     @Override
     public List<Contact> allContacts() {
-        List<Contact> resultList = Lists.newArrayList();
-
-        List<Resource> resourceList = graphRepository.findResourcesWithType(ResourceType.CONTACT.getUri());
-
-        for (Resource resContact : resourceList) {
-            Contact newContact = contactFromResource(resContact);
-            resultList.add(newContact);
-        }
-        return resultList;
+        List<Resource> contactResources = graphRepository.findResourcesWithType(ResourceType.CONTACT.getUri());
+        return contactResources.stream()
+                .map(this::contactFromResource)
+                .collect(Collectors.toList());
     }
 
     @Override
