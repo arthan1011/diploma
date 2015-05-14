@@ -3,7 +3,6 @@ package org.arthan.semantic.service.impl;
 import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.DC;
-import com.hp.hpl.jena.vocabulary.VCARD;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.model.File;
 import org.arthan.semantic.service.GraphFileService;
@@ -14,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by artur.shamsiev on 08.05.2015
@@ -26,10 +26,11 @@ public class GraphFileServiceImpl implements GraphFileService {
     GraphRepository graphRepository;
 
     @Override
-    public void addImageToGraphForContact(String filePath, String contactID) {
+    public void addImageToGraphForContact(String filePath, String contactID, String imageName) {
         Resource fileRes = graphRepository.addResource(File.URI + filePath, ResourceType.FILE.getUri());
         Resource contactRes = graphRepository.getResource(Contact.URI + contactID);
         contactRes.addProperty(Props.IMAGE, fileRes);
+        fileRes.addProperty(DC.title, imageName);
 
         graphRepository.writeGraph();
     }
@@ -53,10 +54,25 @@ public class GraphFileServiceImpl implements GraphFileService {
         while (docsIterator.hasNext()) {
             Statement next = docsIterator.next();
             Resource document = next.getSubject();
-            File doc = File.fromURI(document.getURI());
-            doc.setTitle(document.getProperty(DC.title).getObject().toString());
+            File doc = fileFromResource(document);
             resultList.add(doc);
         }
         return resultList;
+    }
+
+    @Override
+    public List<File> allUserDocuments() {
+        List<File> resultList;
+        List<Resource> docResList = graphRepository.findResourcesWithType(ResourceType.FILE.getUri());
+        resultList = docResList.stream()
+                .map(this::fileFromResource)
+                .collect(Collectors.toList());
+        return resultList;
+    }
+
+    private File fileFromResource(Resource fileResource) {
+        File doc = File.fromURI(fileResource.getURI());
+        doc.setTitle(fileResource.getProperty(DC.title).getObject().toString());
+        return doc;
     }
 }

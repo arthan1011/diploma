@@ -2,7 +2,6 @@ package org.arthan.semantic.service.impl;
 
 import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.*;
-import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.VCARD;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.model.File;
@@ -14,6 +13,7 @@ import org.arthan.semantic.service.graph.ResourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
@@ -33,10 +33,10 @@ public class GraphVCardServiceImpl implements GraphVCardService {
     @Override
     public List<Contact> allContacts() {
         List<Contact> resultList = Lists.newArrayList();
-        Model model = graphRepository.getModel();
-        ResIterator contactIterator = model.listSubjectsWithProperty(RDF.type, ResourceType.CONTACT.getUri());
-        while (contactIterator.hasNext()) {
-            Resource resContact = contactIterator.next();
+
+        List<Resource> resourceList = graphRepository.findResourcesWithType(ResourceType.CONTACT.getUri());
+
+        for (Resource resContact : resourceList) {
             Contact newContact = contactFromResource(resContact);
             resultList.add(newContact);
         }

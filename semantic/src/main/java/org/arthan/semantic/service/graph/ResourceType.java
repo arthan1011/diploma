@@ -7,7 +7,8 @@ package org.arthan.semantic.service.graph;
  */
 public enum ResourceType {
     CONTACT("http://artur.lazy-magister.org/types/contact"),
-    FILE("file://artur.lazy-magister.org/types/file");
+    FILE("file://artur.lazy-magister.org/types/file"),
+    USER("file://artur.lazy-magister.org/types/user");
 
     private String uri;
 

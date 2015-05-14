@@ -27,7 +27,7 @@
         var result = $();
         var tabTitleList = Sem.Utils.uList();
 
-        tabTitleList.append(sem.Utils.createTabTitleItem('contacts', "Контакты"));
+        tabTitleList.append(sem.Utils.createTabTitleItem('contacts', "Мои контакты"));
 
         result = result.add(tabTitleList);
         result = result.add(createContactsTabItem('contacts', main['contacts']));

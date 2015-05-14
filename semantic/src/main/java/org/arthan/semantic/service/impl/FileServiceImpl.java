@@ -21,7 +21,8 @@ public class FileServiceImpl implements FileService {
     private void addImageToGraphForContact(String absSysImagePath, String contactID) {
         String image = FileUtils.cutOffUserHome(absSysImagePath);
         image = FileUtils.toUnixPath(image);
-        graphFileService.addImageToGraphForContact(image, contactID);
+        String imageName = FileUtils.extractFileName(image);
+        graphFileService.addImageToGraphForContact(image, contactID, imageName);
         // file:///data/Pictures/Desert.jpg
     }
 

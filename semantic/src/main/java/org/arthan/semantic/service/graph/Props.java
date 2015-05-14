@@ -13,4 +13,5 @@ public class Props {
 
     public static final String URI = "http://artur.lazy-magister.org/properties#";
     public static final Property IMAGE = m.createProperty(URI + "IMAGE");
+    public static final Property OWNER = m.createProperty(URI + "OWNER");
 }

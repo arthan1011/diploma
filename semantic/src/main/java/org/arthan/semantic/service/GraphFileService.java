@@ -9,9 +9,11 @@ import java.util.List;
  */
 public interface GraphFileService {
 
-    void addImageToGraphForContact(String filePath, String contactID);
+    void addImageToGraphForContact(String filePath, String contactID, String imageName);
 
     void addDocumentToGraphForContact(String documentPath, String documentName, String contactID);
 
     List<File> findFilesByCreator(String creatorUri);
+
+    List<File> allUserDocuments();
 }
