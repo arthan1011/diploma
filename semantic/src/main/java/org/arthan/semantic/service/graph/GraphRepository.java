@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.RDF;
 import org.arthan.semantic.model.User;
-import org.arthan.semantic.service.impl.GraphVCardServiceImpl;
 import org.arthan.semantic.util.FileUtils;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;

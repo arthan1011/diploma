@@ -79,8 +79,8 @@ public class FileUtils {
         }
     }
 
-    public static boolean inHomeDirectory(String imagePath) {
-        return imagePath.startsWith(USER_HOME);
+    public static boolean inHomeDirectory(String filePath) {
+        return filePath.startsWith(USER_HOME);
     }
 
     /**

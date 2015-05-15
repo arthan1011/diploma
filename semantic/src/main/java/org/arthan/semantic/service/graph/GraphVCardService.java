@@ -1,4 +1,4 @@
-package org.arthan.semantic.service;
+package org.arthan.semantic.service.graph;
 
 import org.arthan.semantic.model.Contact;
 

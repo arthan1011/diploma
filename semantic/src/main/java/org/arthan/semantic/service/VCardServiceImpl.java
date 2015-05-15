@@ -1,4 +1,4 @@
-package org.arthan.semantic.service.impl;
+package org.arthan.semantic.service;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Lists;
@@ -10,11 +10,9 @@ import com.hp.hpl.jena.vocabulary.VCARD;
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
 import org.arthan.semantic.model.Contact;
-import org.arthan.semantic.model.User;
-import org.arthan.semantic.service.GraphVCardService;
+import org.arthan.semantic.service.graph.GraphVCardService;
 import org.arthan.semantic.service.VCardService;
 import org.arthan.semantic.service.graph.GraphRepository;
-import org.arthan.semantic.service.graph.Props;
 import org.arthan.semantic.service.graph.ResourceType;
 import org.arthan.semantic.util.GraphUtils;
 import org.arthan.semantic.util.VCardUtils;

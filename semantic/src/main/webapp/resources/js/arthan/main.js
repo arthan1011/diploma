@@ -41,15 +41,35 @@
             );
         }
 
+        function createMusicsTabItem(musicProp, musics) {
+
+            function musicListItem(music) {
+                var link = sem.Utils.anchor(
+                    mainObject._musicPage + "?id=" + music['path'],
+                    music['musicTitle']
+                );
+                return link[0].outerHTML;
+            }
+
+            return sem.Utils.createListTabItem(
+                musics.map(function (item, id, arr) {
+                    return musicListItem(item);
+                }),
+                musicProp
+            )
+        }
+
         var result = $();
         var tabTitleList = sem.Utils.uList();
 
         tabTitleList.append(sem.Utils.createTabTitleItem('contacts', "Мои контакты"));
         tabTitleList.append(sem.Utils.createTabTitleItem('documents', "Мои документы"));
+        tabTitleList.append(sem.Utils.createTabTitleItem('musics', "Моя музыка"));
 
         result = result.add(tabTitleList);
         result = result.add(createContactsTabItem('contacts', main['contacts']));
         result = result.add(createDocumentsTabItem('documents', main['documents']));
+        result = result.add(createMusicsTabItem('musics', main['musics']));
 
         return result;
     };
@@ -57,6 +77,7 @@
     mainObject.loadInfo = function(options) {
         mainObject._contactPage = options['contactPage'];
         mainObject._documentPage = options['documentPage'];
+        mainObject._musicPage = options['musicPage'];
 
         function onSuccess(data) {
             var main = data['main'];

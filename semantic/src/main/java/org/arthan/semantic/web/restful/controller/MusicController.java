@@ -18,7 +18,7 @@ public class MusicController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String addMusicFile(
-            @RequestParam String absMusicPath) {
+            @RequestParam("id") String absMusicPath) {
         return musicService.addMusicFile(absMusicPath);
     }
 }

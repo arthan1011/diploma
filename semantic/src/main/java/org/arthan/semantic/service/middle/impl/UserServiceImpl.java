@@ -1,10 +1,12 @@
-package org.arthan.semantic.service.impl;
+package org.arthan.semantic.service.middle.impl;
 
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.model.File;
-import org.arthan.semantic.service.GraphFileService;
-import org.arthan.semantic.service.GraphVCardService;
-import org.arthan.semantic.service.UserService;
+import org.arthan.semantic.model.MP3File;
+import org.arthan.semantic.service.graph.GraphFileService;
+import org.arthan.semantic.service.graph.GraphMusicService;
+import org.arthan.semantic.service.graph.GraphVCardService;
+import org.arthan.semantic.service.middle.UserService;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,11 +24,14 @@ public class UserServiceImpl implements UserService {
     private GraphVCardService graphVCardService;
     @Autowired
     private GraphFileService graphFileService;
+    @Autowired
+    private GraphMusicService graphMusicService;
 
     @Override
     public String findUserInfo() {
         List<Contact> contactList = graphVCardService.allContacts();
         List<File> documentList = graphFileService.allUserDocuments();
+        List<MP3File> musicList = graphMusicService.allUserMusic();
         String userInfoJson = new JSONStringer()
             .object()
                 .key("main")
@@ -35,6 +40,8 @@ public class UserServiceImpl implements UserService {
                     .value(contactList)
                     .key("documents")
                     .value(documentList)
+                    .key("musics")
+                    .value(musicList)
                 .endObject()
             .endObject()
         .toString();

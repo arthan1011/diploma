@@ -1,6 +1,7 @@
 package org.arthan.semantic.service;
 
 import org.arthan.semantic.service.graph.GraphService;
+import org.arthan.semantic.service.graph.GraphVCardService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

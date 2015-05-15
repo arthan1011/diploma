@@ -1,6 +1,6 @@
 package org.arthan.semantic.web.restful.controller;
 
-import org.arthan.semantic.service.ContactService;
+import org.arthan.semantic.service.middle.ContactService;
 import org.arthan.semantic.service.middle.FileService;
 import org.arthan.semantic.util.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;

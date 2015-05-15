@@ -1,15 +1,13 @@
-package org.arthan.semantic.service.impl;
+package org.arthan.semantic.service.middle.impl;
 
-import com.google.common.base.Strings;
 import org.arthan.semantic.model.Contact;
-import org.arthan.semantic.service.ContactService;
-import org.arthan.semantic.service.GraphVCardService;
+import org.arthan.semantic.service.middle.ContactService;
+import org.arthan.semantic.service.graph.GraphVCardService;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by Arthur Shamsiev on 23.04.15.

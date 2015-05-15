@@ -1,4 +1,4 @@
-package org.arthan.semantic.service;
+package org.arthan.semantic.service.middle;
 
 /**
  * Created by Arthur Shamsiev on 23.04.15.

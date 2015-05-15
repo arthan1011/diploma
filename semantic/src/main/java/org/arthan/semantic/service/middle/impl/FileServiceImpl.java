@@ -1,9 +1,10 @@
 package org.arthan.semantic.service.middle.impl;
 
 import org.arthan.semantic.model.File;
-import org.arthan.semantic.service.GraphFileService;
+import org.arthan.semantic.service.graph.GraphFileService;
 import org.arthan.semantic.service.middle.FileService;
 import org.arthan.semantic.util.FileUtils;
+import org.arthan.semantic.util.JsonAnswerUtils;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,24 +34,24 @@ public class FileServiceImpl implements FileService {
                            String id) {
 
         if (!FileUtils.inHomeDirectory(absSysImagePath)) {
-            return notInHomeAnswer();
+            return JsonAnswerUtils.notInHomeAnswer();
         }
 
         copyFileToServer(absSysImagePath, absWebImagePath);
         addImageToGraphForContact(absSysImagePath, id);
 
-        return fileAddedAnswer();
+        return JsonAnswerUtils.fileAddedAnswer();
     }
 
     @Override
     public String addDocument(String absSysDocPath, String contactID) {
         if (!FileUtils.inHomeDirectory(absSysDocPath)) {
-            return notInHomeAnswer();
+            return JsonAnswerUtils.notInHomeAnswer();
         }
 
         addDocumentToGraphForContact(absSysDocPath, contactID);
 
-        return fileAddedAnswer();
+        return JsonAnswerUtils.fileAddedAnswer();
     }
 
     @Override
@@ -87,30 +88,6 @@ public class FileServiceImpl implements FileService {
                 documentName,
                 contactID
         );
-    }
-
-    private String fileAddedAnswer() {
-        return new JSONStringer()
-            .object()
-                .key("answer")
-                .object()
-                    .key("status")
-                    .value("added")
-                .endObject()
-            .endObject()
-        .toString();
-    }
-
-    private String notInHomeAnswer() {
-        return new JSONStringer()
-            .object()
-                .key("answer")
-                .object()
-                    .key("status")
-                    .value("not-user")
-                .endObject()
-            .endObject()
-        .toString();
     }
 
     private void copyFileToServer(String absSysImagePath, String absWebImagePath) {

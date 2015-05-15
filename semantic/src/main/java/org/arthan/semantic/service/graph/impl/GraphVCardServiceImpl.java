@@ -1,19 +1,17 @@
-package org.arthan.semantic.service.impl;
+package org.arthan.semantic.service.graph.impl;
 
-import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.VCARD;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.model.File;
-import org.arthan.semantic.service.GraphFileService;
-import org.arthan.semantic.service.GraphVCardService;
+import org.arthan.semantic.service.graph.GraphFileService;
+import org.arthan.semantic.service.graph.GraphVCardService;
 import org.arthan.semantic.service.graph.GraphRepository;
 import org.arthan.semantic.service.graph.Props;
 import org.arthan.semantic.service.graph.ResourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
 

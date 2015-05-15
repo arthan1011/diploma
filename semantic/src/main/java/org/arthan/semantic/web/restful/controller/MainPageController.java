@@ -1,6 +1,6 @@
 package org.arthan.semantic.web.restful.controller;
 
-import org.arthan.semantic.service.UserService;
+import org.arthan.semantic.service.middle.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

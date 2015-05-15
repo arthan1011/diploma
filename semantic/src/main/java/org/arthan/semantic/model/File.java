@@ -8,9 +8,9 @@ import org.arthan.semantic.util.FileUtils;
 public class File {
     public static final String URI = "file://artur.lazy-magister.org/data/";
 
-    private String path;
-    private String title;
-    private Contact creator;
+    protected String path;
+    protected String title;
+    protected Contact creator;
 
     private File(String path) {
         this.path = path;
@@ -58,6 +58,10 @@ public class File {
 
     public void setCreator(Contact creator) {
         this.creator = creator;
+    }
+
+    public String getUriID() {
+        return URI + path;
     }
 
     @Override

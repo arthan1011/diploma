@@ -1,12 +1,11 @@
-package org.arthan.semantic.service.impl;
+package org.arthan.semantic.service.graph.impl;
 
-import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.DC;
 import com.hp.hpl.jena.vocabulary.VCARD;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.model.File;
-import org.arthan.semantic.service.GraphFileService;
+import org.arthan.semantic.service.graph.GraphFileService;
 import org.arthan.semantic.service.graph.GraphRepository;
 import org.arthan.semantic.service.graph.Props;
 import org.arthan.semantic.service.graph.ResourceType;
@@ -71,7 +70,7 @@ public class GraphFileServiceImpl implements GraphFileService {
     @Override
     public File findFileByID(String documentID) {
         File file = File.fromPath(documentID);
-        String fileUri = File.URI + file.getPath();
+        String fileUri = file.getUriID();
         Resource fileResource = graphRepository.getResource(fileUri);
         Resource contactRes = fileResource.getPropertyResourceValue(DC.creator);
 
