@@ -21,4 +21,12 @@ public class MusicController {
             @RequestParam("id") String absMusicPath) {
         return musicService.addMusicFile(absMusicPath);
     }
+
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    @ResponseBody
+    public String musicInfo(
+            @RequestParam("id") String musicID) {
+
+        return musicService.findMusic(musicID);
+    }
 }

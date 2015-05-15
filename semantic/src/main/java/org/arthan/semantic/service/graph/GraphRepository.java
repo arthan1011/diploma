@@ -66,8 +66,23 @@ public class GraphRepository {
         return res;
     }
 
+    /**
+     * Метод {@link com.hp.hpl.jena.rdf.model.Model#getResource(String uri)} работает аналогично
+     * методу {@link com.hp.hpl.jena.rdf.model.Model#createResource(String uri)} и создает новый ресурс в
+     * графе, если не находит существующий. Такое поведение нас не устраивает, так как нам необходимо возвращать
+     * только существующий ресурс по URI и возвращать null если не существует такого ресурса.
+     * @param uri идентификатор существующего ресурса
+     * @return возвращаает ресурс, найденный в графе по URI, или null если ресурса с таким URI в графе
+     * не существует.
+     */
     public Resource getResource(String uri) {
-        return getModel().getResource(uri);
+        Resource resource = getModel().createResource(uri);
+        boolean isExistingResource = resource.listProperties().hasNext();
+        if (isExistingResource) {
+            return resource;
+        } else {
+            return null;
+        }
     }
 
     public List<Resource> findResourcesWithType(String type) {

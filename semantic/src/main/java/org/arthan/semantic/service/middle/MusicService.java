@@ -6,4 +6,6 @@ package org.arthan.semantic.service.middle;
 public interface MusicService {
 
     String addMusicFile(String absMusicPath);
+
+    String findMusic(String musicID);
 }

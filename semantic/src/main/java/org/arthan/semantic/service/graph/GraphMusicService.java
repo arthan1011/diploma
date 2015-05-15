@@ -12,4 +12,6 @@ public interface GraphMusicService {
     void addMusicToGraph(MP3File mp3File);
 
     List<MP3File> allUserMusic();
+
+    MP3File findMusicByID(String musicID);
 }

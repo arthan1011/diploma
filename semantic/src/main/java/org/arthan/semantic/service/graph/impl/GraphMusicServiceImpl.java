@@ -3,6 +3,7 @@ package org.arthan.semantic.service.graph.impl;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.hp.hpl.jena.rdf.model.Resource;
+import org.arthan.semantic.model.File;
 import org.arthan.semantic.model.MP3File;
 import org.arthan.semantic.service.graph.GraphMusicService;
 import org.arthan.semantic.service.graph.GraphRepository;
@@ -45,6 +46,12 @@ public class GraphMusicServiceImpl implements GraphMusicService {
 
         return musicResList.stream()
                 .map(this::resourceToMP3File).collect(Collectors.toList());
+    }
+
+    @Override
+    public MP3File findMusicByID(String musicPath) {
+        Resource musicRes = graphRep.getResource(File.URI + musicPath);
+        return resourceToMP3File(musicRes);
     }
 
     private MP3File resourceToMP3File(Resource resource) {
