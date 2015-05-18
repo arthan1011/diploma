@@ -49,7 +49,10 @@ public class MBoxServiceTest {
             Message message = messageBuilder.parseMessage(bis);
             if (!message.isMultipart()) {
                 TextBody body = (TextBody) message.getBody();
-                body.writeTo(System.out);
+//                body.writeTo(System.out);
+            } else {
+                Multipart body = (Multipart) message.getBody();
+                ((TextBody) body.getBodyParts().get(0).getBody()).writeTo(System.out);
             }
             System.out.println(String.format(
                     "From: %s\nTo: %s\nDate: %s\n",
