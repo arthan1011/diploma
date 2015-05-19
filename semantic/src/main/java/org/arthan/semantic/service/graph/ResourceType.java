@@ -9,7 +9,8 @@ public enum ResourceType {
     CONTACT("http://artur.lazy-magister.org/types/contact"),
     FILE("file://artur.lazy-magister.org/types/file"),
     USER("file://artur.lazy-magister.org/types/user"),
-    MP3FILE("file://artur.lazy-magister.org/types/mp3file");
+    MP3FILE("file://artur.lazy-magister.org/types/mp3file"),
+    MAIL("http://artur.lazy-magister.org/types/mail");
 
     private String uri;
 

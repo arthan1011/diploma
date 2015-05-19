@@ -14,7 +14,7 @@ import java.util.Properties;
  */
 public class FileUtils {
     public static final String USER_HOME = System.getProperty("user.home");
-    private static Properties prop;
+    public static Properties prop;
 
     static {
         try {

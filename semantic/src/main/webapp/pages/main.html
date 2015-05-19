@@ -22,6 +22,23 @@
                 url: 'http://localhost:8080/semantic/restful/main/info'
             });
         });
+
+        function displayPage() {
+            $.ajax({
+                url: 'http://localhost:8080/semantic/restful/mails/test',
+                type: 'GET',
+                headers: {
+                    Accept : "text/plain; charset=utf-8"
+                },
+                dataType: 'html',
+                success: function(data, status, jqXHR) {
+                    console.log(data);
+                    var preview = window.open("" ,"", "width=500, height=500");
+                    preview.document.write(data);
+                    preview.document.close();
+                }
+            });
+        }
     </script>
     <h1>Главная страница</h1>
     <div id="tabs"></div>

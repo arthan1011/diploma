@@ -52,6 +52,6 @@ public class VCardUtils {
     }
 
     static public File getDefaultVCardFile() {
-        return new File(System.getProperty("user.home") + "/semantic/list.vcf");
+        return new File(System.getProperty("user.home") + FileUtils.prop.getProperty("path.default.vcard"));
     }
 }

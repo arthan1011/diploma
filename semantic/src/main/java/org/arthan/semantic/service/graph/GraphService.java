@@ -14,9 +14,12 @@ public class GraphService {
     VCardService cardService;
     @Autowired
     GraphRepository graphRep;
+    @Autowired
+    GraphMBoxService graphMBoxService;
 
     public void refreshGraph() {
         cardService.addToGraph();
+        graphMBoxService.addToGraph();
 
         graphRep.writeGraph();
     }

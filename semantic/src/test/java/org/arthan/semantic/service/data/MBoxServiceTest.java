@@ -34,7 +34,7 @@ public class MBoxServiceTest {
     @Test
     public void testMBox() throws Exception {
 
-        String path = System.getProperty("user.home") + "/semantic/Mails2.mbox";
+        String path = System.getProperty("user.home") + "/semantic/Mails.mbox";
         File mboxFile = new File(path);
 
         Assume.assumeTrue(mboxFile.exists());
@@ -50,12 +50,15 @@ public class MBoxServiceTest {
             if (!message.isMultipart()) {
                 TextBody body = (TextBody) message.getBody();
 //                body.writeTo(System.out);
+
+                System.out.println("simple");
             } else {
                 Multipart body = (Multipart) message.getBody();
-                ((TextBody) body.getBodyParts().get(0).getBody()).writeTo(System.out);
+//                ((TextBody) body.getBodyParts().get(0).getBody()).writeTo(System.out);
+                System.out.println("multipart" + body.getBodyParts().size());
             }
             System.out.println(String.format(
-                    "From: %s\nTo: %s\nDate: %s\n",
+                    "From: %s\nSubject: %s\nDate: %s\n",
                     message.getFrom(),
                     message.getSubject(),
                     message.getDate()
@@ -63,4 +66,9 @@ public class MBoxServiceTest {
         }
     }
 
+    @Test
+    public void testMBoxService() throws Exception {
+        MBoxService mboxService = new MBoxServiceImpl();
+        List<MailMessage> mailMessages = mboxService.allMessages();
+    }
 }
