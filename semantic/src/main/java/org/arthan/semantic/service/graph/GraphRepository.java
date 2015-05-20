@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,7 +51,7 @@ public class GraphRepository {
     }
 
     public void writeGraph() {
-        OutputStream out = FileUtils.modelOS();
+        OutputStreamWriter out = FileUtils.modelOS();
         model.write(out);
         try {
             out.close();
@@ -85,9 +86,13 @@ public class GraphRepository {
         }
     }
 
-    public List<Resource> findResourcesWithType(String type) {
+    private List<Resource> findResourcesWithType(String type) {
         ResIterator contactIterator = getModel().listSubjectsWithProperty(RDF.type, type);
         return Lists.newArrayList(contactIterator);
+    }
+
+    public List<Resource> findResourcesWithType(ResourceType type) {
+        return findResourcesWithType(type.getUri());
     }
 
     public List<Resource> subjectsFromSelector(SimpleSelector findDoc) {

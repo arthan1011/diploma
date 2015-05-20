@@ -61,7 +61,7 @@ public class GraphFileServiceImpl implements GraphFileService {
 
     @Override
     public List<File> allUserDocuments() {
-        List<Resource> docResList = graphRepository.findResourcesWithType(ResourceType.FILE.getUri());
+        List<Resource> docResList = graphRepository.findResourcesWithType(ResourceType.FILE);
         return docResList.stream()
                 .map(this::fileFromResource)
                 .collect(Collectors.toList());

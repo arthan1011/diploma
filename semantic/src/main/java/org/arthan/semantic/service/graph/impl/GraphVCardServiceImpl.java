@@ -31,7 +31,7 @@ public class GraphVCardServiceImpl implements GraphVCardService {
 
     @Override
     public List<Contact> allContacts() {
-        List<Resource> contactResources = graphRepository.findResourcesWithType(ResourceType.CONTACT.getUri());
+        List<Resource> contactResources = graphRepository.findResourcesWithType(ResourceType.CONTACT);
         return contactResources.stream()
                 .map(this::contactFromResource)
                 .collect(Collectors.toList());

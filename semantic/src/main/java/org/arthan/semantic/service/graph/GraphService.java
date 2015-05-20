@@ -15,11 +15,11 @@ public class GraphService {
     @Autowired
     GraphRepository graphRep;
     @Autowired
-    GraphMBoxService graphMBoxService;
+    GraphMailService graphMailService;
 
     public void refreshGraph() {
         cardService.addToGraph();
-        graphMBoxService.addToGraph();
+        graphMailService.addToGraph();
 
         graphRep.writeGraph();
     }

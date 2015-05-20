@@ -3,7 +3,9 @@ package org.arthan.semantic.service.middle.impl;
 import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.model.File;
 import org.arthan.semantic.model.MP3File;
+import org.arthan.semantic.model.MailMessage;
 import org.arthan.semantic.service.graph.GraphFileService;
+import org.arthan.semantic.service.graph.GraphMailService;
 import org.arthan.semantic.service.graph.GraphMusicService;
 import org.arthan.semantic.service.graph.GraphVCardService;
 import org.arthan.semantic.service.middle.UserService;
@@ -26,12 +28,15 @@ public class UserServiceImpl implements UserService {
     private GraphFileService graphFileService;
     @Autowired
     private GraphMusicService graphMusicService;
+    @Autowired
+    private GraphMailService graphMailService;
 
     @Override
     public String findUserInfo() {
         List<Contact> contactList = graphVCardService.allContacts();
         List<File> documentList = graphFileService.allUserDocuments();
         List<MP3File> musicList = graphMusicService.allUserMusic();
+        List<MailMessage> mailsList = graphMailService.allMessages();
         String userInfoJson = new JSONStringer()
             .object()
                 .key("main")
@@ -42,6 +47,8 @@ public class UserServiceImpl implements UserService {
                     .value(documentList)
                     .key("musics")
                     .value(musicList)
+                    .key("mails")
+                    .value(mailsList)
                 .endObject()
             .endObject()
         .toString();

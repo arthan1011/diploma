@@ -1,10 +1,6 @@
 package org.arthan.semantic.model;
 
-import com.google.common.collect.Lists;
-import org.apache.james.mime4j.dom.address.Mailbox;
-
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by artur.shamsiev on 18.05.2015
@@ -15,7 +11,7 @@ public class MailMessage {
     private long id;
     private String from;
     private String subject;
-    private Date date;
+    private String dateString;
     private String body;
 
     public void setFrom(String from) {
@@ -34,12 +30,12 @@ public class MailMessage {
         return subject;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateString(String date) {
+        this.dateString = date;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDateString() {
+        return dateString;
     }
 
     public void setBody(String body) {
@@ -56,5 +52,12 @@ public class MailMessage {
 
     public String getBody() {
         return body;
+    }
+
+    public static MailMessage fromURI(String uri) {
+        long id = Long.parseLong(uri.substring(URI.length()));
+        MailMessage mailMessage = new MailMessage();
+        mailMessage.id = id;
+        return mailMessage;
     }
 }

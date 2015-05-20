@@ -1,5 +1,6 @@
 package org.arthan.semantic.util;
 
+import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 
@@ -38,7 +39,7 @@ public class FileUtils {
         return in;
     }
 
-    public static OutputStream modelOS() {
+    public static OutputStreamWriter modelOS() {
         File file = new File(DEFAULT_MODEL_FILE);
         FileOutputStream os = null;
         try {
@@ -49,7 +50,7 @@ public class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return os;
+        return new OutputStreamWriter(os, Charsets.UTF_8);
     }
 
     public static boolean modelFileExists() {

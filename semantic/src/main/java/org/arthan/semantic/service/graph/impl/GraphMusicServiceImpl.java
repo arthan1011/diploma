@@ -42,7 +42,7 @@ public class GraphMusicServiceImpl implements GraphMusicService {
 
     @Override
     public List<MP3File> allUserMusic() {
-        List<Resource> musicResList = graphRep.findResourcesWithType(ResourceType.MP3FILE.getUri());
+        List<Resource> musicResList = graphRep.findResourcesWithType(ResourceType.MP3FILE);
 
         return musicResList.stream()
                 .map(this::resourceToMP3File).collect(Collectors.toList());
