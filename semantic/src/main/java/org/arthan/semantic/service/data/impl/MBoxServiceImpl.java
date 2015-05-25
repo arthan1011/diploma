@@ -2,8 +2,9 @@ package org.arthan.semantic.service.data.impl;
 
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
-import lib.mboxiterator.MboxIterator;
 import org.apache.james.mime4j.dom.Message;
+import org.apache.james.mime4j.mboxiterator.CharBufferWrapper;
+import org.apache.james.mime4j.mboxiterator.MboxIterator;
 import org.apache.james.mime4j.message.DefaultMessageBuilder;
 import org.arthan.semantic.model.MailMessage;
 import org.arthan.semantic.service.data.MBoxService;
@@ -43,11 +44,9 @@ public class MBoxServiceImpl implements MBoxService {
         try {
             MboxIterator build = MboxIterator.fromFile(mboxFile).charset(Charsets.UTF_8).build();
             long i = 1;
-            for (CharBuffer buffer : build) {
-                ByteBuffer byteBuffer = ENCODER.encode(buffer);
+            for (CharBufferWrapper buffer : build) {
                 DefaultMessageBuilder messageBuilder = new DefaultMessageBuilder();
-                ByteArrayInputStream bis = new ByteArrayInputStream(byteBuffer.array());
-                Message message = messageBuilder.parseMessage(bis);
+                Message message = messageBuilder.parseMessage(buffer.asInputStream(Charsets.UTF_8));
 
                 MailMessage mailMessage = MBoxUtils.createMailMessage(message);
                 mailMessage.setId(i++);
