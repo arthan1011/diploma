@@ -4,6 +4,7 @@ import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.service.middle.ContactService;
 import org.arthan.semantic.service.graph.GraphVCardService;
 import org.json.JSONStringer;
+import org.json.JSONWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +58,26 @@ public class ContactServiceImpl implements ContactService {
             .endObject()
         .toString();
         return jsonContact;
+    }
+
+    @Override
+    public String allContacts() {
+        List<Contact> contactList = graphVCardService.allContacts();
+        JSONWriter contacts = new JSONStringer()
+                .object()
+                .key("contacts")
+                .array();
+        for (Contact contact : contactList) {
+            contacts = contacts
+            .object()
+                .key("uri")
+                .value(Contact.URI + contact.getId())
+                .key("label")
+                .value(contact.getFirstName() + " " + contact.getLastName())
+            .endObject();
+        }
+        String jsonContacts = contacts.endArray().endObject().toString();
+        return jsonContacts;
     }
 
 }

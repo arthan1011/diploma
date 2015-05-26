@@ -29,6 +29,12 @@ public class ContactController {
         return contactService.listAllContacts();
     }
 
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @ResponseBody
+    public String allContacts() {
+        return contactService.allContacts();
+    }
+
     @RequestMapping(value = "/contact/{id}", method = RequestMethod.GET)
     @ResponseBody
     public String findContact(@PathVariable String id) {

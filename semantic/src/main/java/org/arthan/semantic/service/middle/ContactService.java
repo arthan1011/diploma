@@ -10,4 +10,6 @@ public interface ContactService {
     String listAllContacts();
 
     String findContact(String id);
+
+    String allContacts();
 }
