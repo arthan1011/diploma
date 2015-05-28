@@ -13,6 +13,7 @@ import org.arthan.semantic.model.Contact;
 import org.arthan.semantic.service.graph.GraphVCardService;
 import org.arthan.semantic.service.VCardService;
 import org.arthan.semantic.service.graph.GraphRepository;
+import org.arthan.semantic.service.graph.Props;
 import org.arthan.semantic.service.graph.ResourceType;
 import org.arthan.semantic.util.GraphUtils;
 import org.arthan.semantic.util.VCardUtils;
@@ -141,6 +142,7 @@ public class VCardServiceImpl implements VCardService {
             String uri = Contact.URI + ++lastContactID;
             Resource res = graphRep.addResource(uri, ResourceType.CONTACT.getUri());
 
+            res.addProperty(Props.LABEL, contact.getFirstName() + " " + contact.getLastName());
             res.addProperty(VCARD.Given, contact.getFirstName());
             res.addProperty(VCARD.Family, contact.getLastName());
             for (String email : contact.getEmails()) {

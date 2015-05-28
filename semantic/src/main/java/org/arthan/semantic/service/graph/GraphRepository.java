@@ -86,7 +86,7 @@ public class GraphRepository {
         }
     }
 
-    private List<Resource> findResourcesWithType(String type) {
+    public List<Resource> findResourcesWithType(String type) {
         ResIterator contactIterator = getModel().listSubjectsWithProperty(RDF.type, type);
         return Lists.newArrayList(contactIterator);
     }
