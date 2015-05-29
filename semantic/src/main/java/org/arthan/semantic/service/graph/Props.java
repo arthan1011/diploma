@@ -21,4 +21,8 @@ public class Props {
     public static final Property BODY = m.createProperty(URI + "BODY");
     public static final Property FROM = m.createProperty(URI + "FROM");
     public static final Property LABEL = m.createProperty(URI + "LABEL");
+
+    public static Property forUri(String uri) {
+        return m.createProperty(uri);
+    }
 }

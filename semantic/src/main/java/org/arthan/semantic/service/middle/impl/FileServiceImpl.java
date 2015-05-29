@@ -1,13 +1,17 @@
 package org.arthan.semantic.service.middle.impl;
 
 import org.arthan.semantic.model.File;
+import org.arthan.semantic.model.Triplet;
 import org.arthan.semantic.service.graph.GraphFileService;
+import org.arthan.semantic.service.graph.GraphSemanticService;
 import org.arthan.semantic.service.middle.FileService;
 import org.arthan.semantic.util.FileUtils;
 import org.arthan.semantic.util.JsonAnswerUtils;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.inject.Inject;
 
 /**
  * Created by artur.shamsiev on 07.05.2015
@@ -19,6 +23,8 @@ public class FileServiceImpl implements FileService {
 
     @Autowired
     private GraphFileService graphFileService;
+    @Inject
+    private GraphSemanticService graphSemanticService;
 
     private void addImageToGraphForContact(String absSysImagePath, String contactID) {
         String image = FileUtils.cutOffUserHome(absSysImagePath);
@@ -51,6 +57,25 @@ public class FileServiceImpl implements FileService {
 
         addDocumentToGraphForContact(absSysDocPath, contactID);
 
+        return JsonAnswerUtils.fileAddedAnswer();
+    }
+
+    @Override
+    public String addFile(String filePath, String predicateURI, String objectURI) {
+        String filePathFromHome = FileUtils.cutOffUserHome(filePath);
+        filePathFromHome = FileUtils.toUnixPath(filePathFromHome);
+        String fileName = FileUtils.extractFileName(filePathFromHome);
+
+        Triplet triplet = new Triplet();
+        triplet.getSubject()
+                .setUri(File.URI + filePathFromHome)
+                .setLabel(fileName);
+        triplet.getPredicate()
+                .setUri(predicateURI);
+        triplet.getObject()
+                .setUri(objectURI);
+
+        graphSemanticService.addNewResourceTriplet(triplet);
         return JsonAnswerUtils.fileAddedAnswer();
     }
 

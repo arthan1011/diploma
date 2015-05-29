@@ -13,4 +13,6 @@ public interface FileService {
                        String contactID);
 
     String findDocument(String documentID);
+
+    String addFile(String filePath, String predicateURI, String objectURI);
 }
