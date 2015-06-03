@@ -26,8 +26,8 @@ public class GraphFileServiceImpl implements GraphFileService {
     GraphRepository graphRepository;
 
     @Override
-    public void addImageToGraphForContact(String filePath, String contactID, String imageName) {
-        Resource fileRes = graphRepository.addResource(File.URI + filePath, ResourceType.FILE.getUri());
+    public void addImageToGraphForContact(String fileHomePath, String contactID, String imageName) {
+        Resource fileRes = addFileToGraph(fileHomePath);
         Resource contactRes = graphRepository.getResource(Contact.URI + contactID);
         contactRes.addProperty(Props.IMAGE, fileRes);
         fileRes.addProperty(DC.title, imageName);
@@ -36,8 +36,13 @@ public class GraphFileServiceImpl implements GraphFileService {
     }
 
     @Override
+    public Resource addFileToGraph(String fileHomePath) {
+        return graphRepository.addResource(File.URI + fileHomePath, ResourceType.FILE.getUri());
+    }
+
+    @Override
     public void addDocumentToGraphForContact(String documentPath, String documentName, String contactID) {
-        Resource fileRes = graphRepository.addResource(File.URI + documentPath, ResourceType.FILE.getUri());
+        Resource fileRes = addFileToGraph(documentPath);
         Resource contactRes = graphRepository.getResource(Contact.URI + contactID);
         fileRes.addProperty(DC.creator, contactRes);
         fileRes.addProperty(DC.title, documentName);

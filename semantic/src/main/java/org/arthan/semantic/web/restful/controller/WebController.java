@@ -11,7 +11,6 @@ import javax.servlet.ServletContext;
  */
 
 @RestController
-@Component
 public class WebController {
 
     @Autowired

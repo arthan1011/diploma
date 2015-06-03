@@ -9,6 +9,7 @@ public class File {
     public static final String URI = "file://artur.lazy-magister.org/data/";
 
     protected String path;
+    protected String absPath;
     protected String title;
     protected Contact creator;
 
@@ -31,9 +32,12 @@ public class File {
         return new File(path);
     }
 
-    public static File fromAbsPath(String absPath) {
-        String path = FileUtils.toUnixPath(FileUtils.cutOffUserHome(absPath));
-        return new File(path);
+    public static File fromAbsPath(final String absPath) {
+        String absUnixPath = FileUtils.toUnixPath(absPath);
+        String homePath = FileUtils.cutOffUserHome(absUnixPath);
+        File file = new File(homePath);
+        file.setAbsPath(absUnixPath);
+        return file;
     }
 
     public String getPath() {
@@ -62,6 +66,14 @@ public class File {
 
     public String getUriID() {
         return URI + path;
+    }
+
+    public String getAbsPath() {
+        return absPath;
+    }
+
+    public void setAbsPath(String absPath) {
+        this.absPath = absPath;
     }
 
     @Override

@@ -87,14 +87,14 @@ public class FileUtils {
     /**
      * Отсекает от имени файла путь до домашнего каталога пользователя
      *
-     * @param imagePath путь до файла в домашнем каталоге
+     * @param absolutePath путь до файла в домашнем каталоге
      * @return
      */
-    public static String cutOffUserHome(String imagePath) {
-        if (!inHomeDirectory(imagePath)) {
-            return imagePath;
+    public static String cutOffUserHome(String absolutePath) {
+        if (!inHomeDirectory(absolutePath)) {
+            return absolutePath;
         }
-        return imagePath.substring(USER_HOME.length() + 1);
+        return absolutePath.substring(USER_HOME.length() + 1);
     }
 
     public static String toUnixPath(String path) {

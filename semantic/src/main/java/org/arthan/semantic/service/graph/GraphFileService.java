@@ -1,5 +1,6 @@
 package org.arthan.semantic.service.graph;
 
+import com.hp.hpl.jena.rdf.model.Resource;
 import org.arthan.semantic.model.File;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.List;
 public interface GraphFileService {
 
     void addImageToGraphForContact(String filePath, String contactID, String imageName);
+
+    Resource addFileToGraph(String fileHomePath);
 
     void addDocumentToGraphForContact(String documentPath, String documentName, String contactID);
 

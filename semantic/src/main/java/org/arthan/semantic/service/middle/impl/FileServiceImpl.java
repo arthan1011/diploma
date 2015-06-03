@@ -67,19 +67,15 @@ public class FileServiceImpl implements FileService {
             return JsonAnswerUtils.notInHomeAnswer();
         }
 
-        String filePathFromHome = FileUtils.cutOffUserHome(filePath);
-        filePathFromHome = FileUtils.toUnixPath(filePathFromHome);
-        String fileName = FileUtils.extractFileName(filePathFromHome);
-
-        String extension = FileUtils.getExtension(filePathFromHome);
+        String extension = FileUtils.getExtension(filePath);
 
         ResourceAdapter adapter;
         switch (extension) {
             case "mp3":
                 adapter = getBean("mp3Adapter");
                 break;
-            case "rdf":
-                adapter = getBean("rdfAdapter");
+            case "rtf":
+                adapter = getBean("rtfAdapter");
                 break;
             case "pdf":
                 adapter = getBean("pdfAdapter");
@@ -93,14 +89,24 @@ public class FileServiceImpl implements FileService {
             case "txt":
                 adapter = getBean("txtAdapter");
                 break;
+            case "jpg":
+                adapter = getBean("jpgAdapter");
+                break;
+            case "png":
+                adapter = getBean("pngAdapter");
+                break;
+            case "gif":
+                adapter = getBean("gifAdapter");
+                break;
+
             default:
                 throw new RuntimeException("Can't find adapter for extension: " + extension);
         }
-        adapter.addToGraph(filePath, predicateURI, objectURI);
+        adapter.addToGraph(File.fromAbsPath(filePath), predicateURI, objectURI);
 
         /*Triplet triplet = new Triplet();
         triplet.getSubject()
-                .setUri(File.URI + filePathFromHome)
+                .setUri(File.URI + unixPath)
                 .setLabel(fileName);
         triplet.getPredicate()
                 .setUri(predicateURI);
