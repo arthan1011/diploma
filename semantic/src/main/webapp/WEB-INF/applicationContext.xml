@@ -10,5 +10,6 @@
 
     <context:annotation-config />
     <context:component-scan base-package="org.arthan.semantic.service" />
+    <context:component-scan base-package="org.arthan.semantic.web.restful.controller" />
 
 </beans>

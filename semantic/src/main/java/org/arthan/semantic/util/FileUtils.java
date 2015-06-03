@@ -106,4 +106,8 @@ public class FileUtils {
         String[] pathArray = absFilePath.split("/");
         return pathArray[pathArray.length - 1].split("\\.")[0];
     }
+
+    public static String getExtension(String fileName) {
+        return fileName.substring(fileName.lastIndexOf('.') + 1);
+    }
 }

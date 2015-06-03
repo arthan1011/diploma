@@ -1,7 +1,6 @@
 package org.arthan.semantic.web.restful.controller;
 
 import com.google.common.collect.Lists;
-import org.arthan.semantic.service.graph.GraphService;
 import org.arthan.semantic.service.middle.FileService;
 import org.arthan.semantic.service.middle.SemGraphService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +35,7 @@ public class GraphController {
             @RequestParam String filePath,
             @RequestParam String predicateURI,
             @RequestParam String objectURI) {
+
         return fileService.addFile(filePath, predicateURI, objectURI);
     }
 }

@@ -31,7 +31,7 @@ public class MusicServiceImpl implements MusicService {
         }
 
         MP3File mp3File = mp3Service.findMP3(absMusicPath);
-        graphMusicService.addMusicToGraph(mp3File);
+        graphMusicService.writeMusicToGraph(mp3File);
 
         return JsonAnswerUtils.fileAddedAnswer();
     }

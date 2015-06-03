@@ -1,5 +1,6 @@
 package org.arthan.semantic.service.graph;
 
+import com.hp.hpl.jena.rdf.model.Resource;
 import org.arthan.semantic.model.MP3File;
 
 import java.util.List;
@@ -9,7 +10,9 @@ import java.util.List;
  */
 public interface GraphMusicService {
 
-    void addMusicToGraph(MP3File mp3File);
+    void writeMusicToGraph(MP3File mp3File);
+
+    Resource addMusicToGraph(MP3File mp3File);
 
     List<MP3File> allUserMusic();
 

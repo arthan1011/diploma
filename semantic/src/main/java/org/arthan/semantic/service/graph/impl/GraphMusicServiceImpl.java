@@ -26,7 +26,14 @@ public class GraphMusicServiceImpl implements GraphMusicService {
     GraphRepository graphRep;
 
     @Override
-    public void addMusicToGraph(MP3File mp3File) {
+    public void writeMusicToGraph(MP3File mp3File) {
+        addMusicToGraph(mp3File);
+
+        graphRep.writeGraph();
+    }
+
+    @Override
+    public Resource addMusicToGraph(MP3File mp3File) {
         Preconditions.checkNotNull(
                 Strings.emptyToNull(mp3File.getPath()),
                 "Не могу добавить музыкальный файл без идентификатора-пути в граф"
@@ -37,8 +44,9 @@ public class GraphMusicServiceImpl implements GraphMusicService {
         mp3Res.addProperty(Props.MUSIC_GENRE, mp3File.getGenre());
         mp3Res.addProperty(Props.MUSIC_TITLE, mp3File.getMusicTitle());
 
-        graphRep.writeGraph();
+        return mp3Res;
     }
+
 
     @Override
     public List<MP3File> allUserMusic() {

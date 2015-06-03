@@ -1,7 +1,7 @@
 package org.arthan.semantic.service.middle.impl;
 
 import org.arthan.semantic.model.File;
-import org.arthan.semantic.model.Triplet;
+import org.arthan.semantic.service.adapters.ResourceAdapter;
 import org.arthan.semantic.service.graph.GraphFileService;
 import org.arthan.semantic.service.graph.GraphSemanticService;
 import org.arthan.semantic.service.middle.FileService;
@@ -9,9 +9,8 @@ import org.arthan.semantic.util.FileUtils;
 import org.arthan.semantic.util.JsonAnswerUtils;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-
-import javax.inject.Inject;
 
 /**
  * Created by artur.shamsiev on 07.05.2015
@@ -20,10 +19,12 @@ import javax.inject.Inject;
 @Component
 public class FileServiceImpl implements FileService {
 
+    @Autowired
+    ApplicationContext applicationContext;
 
     @Autowired
     private GraphFileService graphFileService;
-    @Inject
+    @Autowired
     private GraphSemanticService graphSemanticService;
 
     private void addImageToGraphForContact(String absSysImagePath, String contactID) {
@@ -43,7 +44,7 @@ public class FileServiceImpl implements FileService {
             return JsonAnswerUtils.notInHomeAnswer();
         }
 
-        copyFileToServer(absSysImagePath, absWebImagePath);
+//        copyFileToServer(absSysImagePath, absWebImagePath);
         addImageToGraphForContact(absSysImagePath, id);
 
         return JsonAnswerUtils.fileAddedAnswer();
@@ -62,11 +63,42 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public String addFile(String filePath, String predicateURI, String objectURI) {
+        if (!FileUtils.inHomeDirectory(filePath)) {
+            return JsonAnswerUtils.notInHomeAnswer();
+        }
+
         String filePathFromHome = FileUtils.cutOffUserHome(filePath);
         filePathFromHome = FileUtils.toUnixPath(filePathFromHome);
         String fileName = FileUtils.extractFileName(filePathFromHome);
 
-        Triplet triplet = new Triplet();
+        String extension = FileUtils.getExtension(filePathFromHome);
+
+        ResourceAdapter adapter;
+        switch (extension) {
+            case "mp3":
+                adapter = getBean("mp3Adapter");
+                break;
+            case "rdf":
+                adapter = getBean("rdfAdapter");
+                break;
+            case "pdf":
+                adapter = getBean("pdfAdapter");
+                break;
+            case "doc":
+                adapter = getBean("docAdapter");
+                break;
+            case "docx":
+                adapter = getBean("docxAdapter");
+                break;
+            case "txt":
+                adapter = getBean("txtAdapter");
+                break;
+            default:
+                throw new RuntimeException("Can't find adapter for extension: " + extension);
+        }
+        adapter.addToGraph(filePath, predicateURI, objectURI);
+
+        /*Triplet triplet = new Triplet();
         triplet.getSubject()
                 .setUri(File.URI + filePathFromHome)
                 .setLabel(fileName);
@@ -75,8 +107,12 @@ public class FileServiceImpl implements FileService {
         triplet.getObject()
                 .setUri(objectURI);
 
-        graphSemanticService.addNewResourceTriplet(triplet);
+        graphSemanticService.addNewResourceTriplet(triplet);*/
         return JsonAnswerUtils.fileAddedAnswer();
+    }
+
+    private ResourceAdapter getBean(String adapterName) {
+        return applicationContext.getBean(adapterName, ResourceAdapter.class);
     }
 
     @Override
@@ -113,10 +149,6 @@ public class FileServiceImpl implements FileService {
                 documentName,
                 contactID
         );
-    }
-
-    private void copyFileToServer(String absSysImagePath, String absWebImagePath) {
-        FileUtils.copyFile(absSysImagePath, absWebImagePath);
     }
 
 }
