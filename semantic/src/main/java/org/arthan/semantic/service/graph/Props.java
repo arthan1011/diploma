@@ -23,6 +23,8 @@ public class Props {
     public static final Property LABEL = m.createProperty(URI + "LABEL");
     public static final Property IMAGE_OF = m.createProperty(URI + "IMAGE_OF");
 
+    public static final Property REVERSE_PROPERTY = m.createProperty(URI + "reverseProp");
+
     public static Property forUri(String uri) {
         return m.createProperty(uri);
     }

@@ -6,6 +6,7 @@ import org.arthan.semantic.model.File;
 import org.arthan.semantic.service.adapters.JpgAdapter;
 import org.arthan.semantic.service.graph.GraphFileService;
 import org.arthan.semantic.service.graph.GraphRepository;
+import org.arthan.semantic.service.graph.OntologyRepository;
 import org.arthan.semantic.service.graph.Props;
 import org.arthan.semantic.util.FileUtils;
 import org.arthan.semantic.web.restful.controller.WebController;
@@ -29,6 +30,8 @@ public class JpgAdapterImpl implements JpgAdapter {
     GraphFileService graphFileService;
     @Inject
     GraphRepository graphRep;
+    @Inject
+    OntologyRepository ontologyRepository;
 
     @Override
     public void addToGraph(File file, String predicateURI, String objectURI) {
@@ -38,8 +41,16 @@ public class JpgAdapterImpl implements JpgAdapter {
         subject.addProperty(Props.LABEL, file.getTitle());
         subject.addProperty(DC.title, file.getTitle());
 
+
         Resource object = graphRep.getResource(objectURI);
+
+        // создаем связь от субъекта к объекту (прямое свойство)
         subject.addProperty(Props.forUri(predicateURI), object);
+
+        // а теперь создаем связь (обратное свойство) от объекта к субъекту
+        object.addProperty(
+                ontologyRepository.reversePropFor(Props.forUri(predicateURI)),
+                subject);
 
         graphRep.writeGraph();
     }

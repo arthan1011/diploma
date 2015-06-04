@@ -29,6 +29,17 @@ public class FileUtils {
     }
 
     public static final String DEFAULT_MODEL_FILE = System.getProperty("user.home") + prop.getProperty("path.default.model");
+    public static final String DEFAULT_ONT_MODEL_FILE = System.getProperty("user.home") + prop.getProperty("path.default.ont.model");
+
+    public static InputStream ontModelIS() {
+        FileInputStream in = null;
+        try {
+            in = new FileInputStream(new File(DEFAULT_ONT_MODEL_FILE));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return in;
+    }
 
     public static InputStream modelIS() {
         String path = DEFAULT_MODEL_FILE;
