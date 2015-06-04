@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 
+import static org.arthan.semantic.util.FileUtils.copyFile;
+import static org.arthan.semantic.util.FileUtils.toUnixPath;
+
 /**
  * Created by artur.shamsiev on 03.06.2015
  */
@@ -42,8 +45,8 @@ public class JpgAdapterImpl implements JpgAdapter {
     }
 
     private void copyFileToServer(File file) {
-        FileUtils.copyFile(
+        copyFile(
                 file.getAbsPath(),
-                webController.getDataPath() + file.getTitle() + ".jpg");
+                toUnixPath(webController.getDataPath()) + file.getPath());
     }
 }

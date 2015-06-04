@@ -2,6 +2,9 @@ package org.arthan.semantic.model;
 
 import org.arthan.semantic.util.FileUtils;
 
+import static org.arthan.semantic.util.FileUtils.cutOffUserHome;
+import static org.arthan.semantic.util.FileUtils.toUnixPath;
+
 /**
  * Created by artur.shamsiev on 08.05.2015
  */
@@ -33,8 +36,8 @@ public class File {
     }
 
     public static File fromAbsPath(final String absPath) {
-        String absUnixPath = FileUtils.toUnixPath(absPath);
-        String homePath = FileUtils.cutOffUserHome(absUnixPath);
+        String absUnixPath = toUnixPath(absPath);
+        String homePath = toUnixPath(cutOffUserHome(absPath));
         File file = new File(homePath);
         file.setAbsPath(absUnixPath);
         return file;

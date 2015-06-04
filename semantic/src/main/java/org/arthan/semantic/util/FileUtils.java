@@ -5,7 +5,9 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 
 import java.io.*;
+import java.nio.file.CopyOption;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 
 /**
@@ -67,14 +69,13 @@ public class FileUtils {
         // such file not exists in web app data directory
         File targetFile = new File(absTarget);
 
-        if (targetFile.exists()) {
-            targetFile.delete();
-        }
+        targetFile.getParentFile().mkdirs();
 
         try {
             Files.copy(
                     new FileInputStream(absSource),
-                    targetFile.toPath());
+                    targetFile.toPath(),
+                    StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
