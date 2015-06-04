@@ -17,6 +17,7 @@ import java.util.Properties;
  */
 public class FileUtils {
     public static final String USER_HOME = System.getProperty("user.home");
+    private static final String PROPERTIES_PATH = "/config/";
     public static Properties prop;
 
     static {
@@ -39,6 +40,17 @@ public class FileUtils {
             e.printStackTrace();
         }
         return in;
+    }
+
+    public static Properties getProperties(String path) {
+        Properties properties = new Properties();
+        try {
+            properties.load(FileUtils.class.getResourceAsStream(PROPERTIES_PATH + path));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return properties;
     }
 
     public static InputStream modelIS() {

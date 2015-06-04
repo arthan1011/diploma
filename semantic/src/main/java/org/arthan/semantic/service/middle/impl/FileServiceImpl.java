@@ -2,6 +2,7 @@ package org.arthan.semantic.service.middle.impl;
 
 import org.arthan.semantic.model.File;
 import org.arthan.semantic.service.adapters.ResourceAdapter;
+import org.arthan.semantic.service.data.PropertyService;
 import org.arthan.semantic.service.graph.GraphFileService;
 import org.arthan.semantic.service.graph.GraphSemanticService;
 import org.arthan.semantic.service.middle.FileService;
@@ -9,8 +10,11 @@ import org.arthan.semantic.util.FileUtils;
 import org.arthan.semantic.util.JsonAnswerUtils;
 import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+
+import javax.inject.Inject;
 
 /**
  * Created by artur.shamsiev on 07.05.2015
@@ -26,6 +30,9 @@ public class FileServiceImpl implements FileService {
     private GraphFileService graphFileService;
     @Autowired
     private GraphSemanticService graphSemanticService;
+    @Inject
+    @Qualifier("adapters")
+    private PropertyService adaptersProps;
 
     private void addImageToGraphForContact(String absSysImagePath, String contactID) {
         String image = FileUtils.cutOffUserHome(absSysImagePath);
@@ -69,39 +76,8 @@ public class FileServiceImpl implements FileService {
 
         String extension = FileUtils.getExtension(filePath);
 
-        ResourceAdapter adapter;
-        switch (extension) {
-            case "mp3":
-                adapter = getBean("mp3Adapter");
-                break;
-            case "rtf":
-                adapter = getBean("rtfAdapter");
-                break;
-            case "pdf":
-                adapter = getBean("pdfAdapter");
-                break;
-            case "doc":
-                adapter = getBean("docAdapter");
-                break;
-            case "docx":
-                adapter = getBean("docxAdapter");
-                break;
-            case "txt":
-                adapter = getBean("txtAdapter");
-                break;
-            case "jpg":
-                adapter = getBean("jpgAdapter");
-                break;
-            case "png":
-                adapter = getBean("pngAdapter");
-                break;
-            case "gif":
-                adapter = getBean("gifAdapter");
-                break;
+        ResourceAdapter adapter = getBean(adaptersProps.get(extension));
 
-            default:
-                throw new RuntimeException("Can't find adapter for extension: " + extension);
-        }
         adapter.addToGraph(File.fromAbsPath(filePath), predicateURI, objectURI);
 
         /*Triplet triplet = new Triplet();
