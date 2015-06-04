@@ -75,21 +75,9 @@ public class FileServiceImpl implements FileService {
         }
 
         String extension = FileUtils.getExtension(filePath);
-
         ResourceAdapter adapter = getBean(adaptersProps.get(extension));
-
         adapter.addToGraph(File.fromAbsPath(filePath), predicateURI, objectURI);
 
-        /*Triplet triplet = new Triplet();
-        triplet.getSubject()
-                .setUri(File.URI + unixPath)
-                .setLabel(fileName);
-        triplet.getPredicate()
-                .setUri(predicateURI);
-        triplet.getObject()
-                .setUri(objectURI);
-
-        graphSemanticService.addNewResourceTriplet(triplet);*/
         return JsonAnswerUtils.fileAddedAnswer();
     }
 

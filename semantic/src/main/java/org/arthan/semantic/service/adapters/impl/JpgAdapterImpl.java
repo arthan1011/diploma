@@ -41,7 +41,6 @@ public class JpgAdapterImpl implements JpgAdapter {
         subject.addProperty(Props.LABEL, file.getTitle());
         subject.addProperty(DC.title, file.getTitle());
 
-
         Resource object = graphRep.getResource(objectURI);
 
         // создаем связь от субъекта к объекту (прямое свойство)
