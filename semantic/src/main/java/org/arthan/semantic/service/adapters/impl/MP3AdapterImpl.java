@@ -4,12 +4,10 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.DC;
 import org.arthan.semantic.model.File;
 import org.arthan.semantic.model.MP3File;
+import org.arthan.semantic.service.adapters.AdapterComponent;
 import org.arthan.semantic.service.adapters.MP3Adapter;
 import org.arthan.semantic.service.data.MP3Service;
-import org.arthan.semantic.service.graph.GraphMusicService;
-import org.arthan.semantic.service.graph.GraphRepository;
-import org.arthan.semantic.service.graph.Props;
-import org.arthan.semantic.service.graph.ResourceType;
+import org.arthan.semantic.service.graph.*;
 import org.arthan.semantic.util.FileUtils;
 import org.arthan.semantic.web.restful.controller.WebController;
 import org.springframework.stereotype.Component;
@@ -24,11 +22,11 @@ import javax.inject.Inject;
 public class MP3AdapterImpl implements MP3Adapter {
 
     @Inject
-    GraphRepository graphRep;
-    @Inject
     MP3Service mp3Service;
     @Inject
     GraphMusicService graphMusicService;
+    @Inject
+    AdapterComponent adapterComponent;
 
     @Override
     public void addToGraph(File file, String predicateURI, String objectURI) {
@@ -37,12 +35,6 @@ public class MP3AdapterImpl implements MP3Adapter {
 
         // добавляем в граф
         Resource subject = graphMusicService.addMusicToGraph(mp3File);
-        subject.addProperty(Props.LABEL, file.getTitle());
-        subject.addProperty(DC.title, file.getTitle());
-
-        Resource object = graphRep.getResource(objectURI);
-        subject.addProperty(Props.forUri(predicateURI), object);
-
-        graphRep.writeGraph();
+        adapterComponent.addResource(subject, predicateURI, objectURI, file.getTitle());
     }
 }

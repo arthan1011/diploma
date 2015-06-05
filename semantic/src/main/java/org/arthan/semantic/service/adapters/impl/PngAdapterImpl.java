@@ -1,7 +1,6 @@
 package org.arthan.semantic.service.adapters.impl;
 
-import org.arthan.semantic.model.File;
-import org.arthan.semantic.service.adapters.PngAdapter;
+import org.arthan.semantic.service.adapters.PictureAdapter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,9 +8,6 @@ import org.springframework.stereotype.Component;
  */
 
 @Component("pngAdapter")
-public class PngAdapterImpl implements PngAdapter {
-    @Override
-    public void addToGraph(File file, String predicateURI, String objectURI) {
+public class PngAdapterImpl extends PictureAdapter {
 
-    }
 }

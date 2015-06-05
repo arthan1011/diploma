@@ -16,6 +16,10 @@ import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 
+import static org.arthan.semantic.util.FileUtils.getExtension;
+import static org.arthan.semantic.util.FileUtils.inHomeDirectory;
+import static org.arthan.semantic.util.JsonAnswerUtils.notInHomeAnswer;
+
 /**
  * Created by artur.shamsiev on 07.05.2015
  */
@@ -47,8 +51,8 @@ public class FileServiceImpl implements FileService {
                            String absWebImagePath,
                            String id) {
 
-        if (!FileUtils.inHomeDirectory(absSysImagePath)) {
-            return JsonAnswerUtils.notInHomeAnswer();
+        if (!inHomeDirectory(absSysImagePath)) {
+            return notInHomeAnswer();
         }
 
 //        copyFileToServer(absSysImagePath, absWebImagePath);
@@ -59,8 +63,8 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public String addDocument(String absSysDocPath, String contactID) {
-        if (!FileUtils.inHomeDirectory(absSysDocPath)) {
-            return JsonAnswerUtils.notInHomeAnswer();
+        if (!inHomeDirectory(absSysDocPath)) {
+            return notInHomeAnswer();
         }
 
         addDocumentToGraphForContact(absSysDocPath, contactID);
@@ -70,12 +74,13 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public String addFile(String filePath, String predicateURI, String objectURI) {
-        if (!FileUtils.inHomeDirectory(filePath)) {
-            return JsonAnswerUtils.notInHomeAnswer();
+        if (!inHomeDirectory(filePath)) {
+            return notInHomeAnswer();
         }
 
-        String extension = FileUtils.getExtension(filePath);
-        ResourceAdapter adapter = getBean(adaptersProps.get(extension));
+        String extension = getExtension(filePath).toLowerCase();
+        String adapterName = adaptersProps.get(extension);
+        ResourceAdapter adapter = getBean(adapterName);
         adapter.addToGraph(File.fromAbsPath(filePath), predicateURI, objectURI);
 
         return JsonAnswerUtils.fileAddedAnswer();
