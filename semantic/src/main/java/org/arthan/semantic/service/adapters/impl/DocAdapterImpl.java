@@ -2,6 +2,7 @@ package org.arthan.semantic.service.adapters.impl;
 
 import org.arthan.semantic.model.File;
 import org.arthan.semantic.service.adapters.DocAdapter;
+import org.arthan.semantic.service.adapters.FileAdapter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,9 +10,5 @@ import org.springframework.stereotype.Component;
  */
 
 @Component("docAdapter")
-public class DocAdapterImpl implements DocAdapter {
-    @Override
-    public void addToGraph(File file, String predicateURI, String objectURI) {
-
-    }
+public class DocAdapterImpl extends FileAdapter {
 }

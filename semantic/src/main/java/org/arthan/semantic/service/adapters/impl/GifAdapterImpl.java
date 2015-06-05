@@ -1,7 +1,6 @@
 package org.arthan.semantic.service.adapters.impl;
 
-import org.arthan.semantic.model.File;
-import org.arthan.semantic.service.adapters.GifAdapter;
+import org.arthan.semantic.service.adapters.PictureAdapter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,9 +8,5 @@ import org.springframework.stereotype.Component;
  */
 
 @Component("gifAdapter")
-public class GifAdapterImpl implements GifAdapter {
-    @Override
-    public void addToGraph(File file, String predicateURI, String objectURI) {
-
-    }
+public class GifAdapterImpl extends PictureAdapter {
 }

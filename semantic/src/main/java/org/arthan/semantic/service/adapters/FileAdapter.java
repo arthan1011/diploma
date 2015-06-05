@@ -13,9 +13,7 @@ import static org.arthan.semantic.util.FileUtils.toUnixPath;
 /**
  * Created by artur.shamsiev on 05.06.2015
  */
-public class PictureAdapter extends FileAdapter {
-    @Inject
-    WebController webController;
+public class FileAdapter implements ResourceAdapter {
     @Inject
     GraphFileService graphFileService;
     @Inject
@@ -23,13 +21,8 @@ public class PictureAdapter extends FileAdapter {
 
     @Override
     public void addToGraph(File file, String predicateURI, String objectURI) {
-        copyFileToServer(file);
-        super.addToGraph(file, predicateURI, objectURI);
+        Resource subject = graphFileService.addFileToGraph(file.getPath());
+        adapterComponent.addResource(subject, predicateURI, objectURI, file.getTitle());
     }
 
-    private void copyFileToServer(File file) {
-        copyFile(
-                file.getAbsPath(),
-                toUnixPath(webController.getDataPath()) + file.getPath());
-    }
 }
